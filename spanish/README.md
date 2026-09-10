@@ -1,4 +1,4 @@
-# Una perspectiva de Cuba — edición en español
+# Una perspectiva de Cuba: Pasado y Futuro — edición en español
 
 Traducción de la edición inglesa en [`../english/`](../english/). Borrador
 completo: 24 capítulos, 231 páginas, 52 recuadros de diseño numerados, 3 figuras.

@@ -1,4 +1,4 @@
-# A prospect of Cuba (book)
+# A prospect of Cuba: Past and Future
 
 Three-part book. Parts I and II report the history of Cuba 1959–1990 and
 1990–2026 without taking a side — the good and the bad, in the same chapter, at
