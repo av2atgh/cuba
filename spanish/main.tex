@@ -11,8 +11,15 @@
 % macros are dropped. What replaces them is at the bottom: a `ledger` box for
 % Parts I and II and a `design` box for Part III, both built on chygraph's
 % model-box code so that the three books read as one series.
-\usepackage[paperwidth=5in,paperheight=8in,includehead,
-            inner=0.6625in,outer=0.2875in,top=0.56in,bottom=0.64in]{geometry}
+% includefoot no es decorativo. Sin él, geometry mide `bottom` hasta el pie del
+% BLOQUE DE TEXTO y deja el folio donde lo ponga \footskip, que eran 0,266
+% pulgadas del corte: por encima del piso de 0,25 de KDP pero dentro del área de
+% seguridad de 0,5 que dibuja una verificación de imprenta, de modo que el número
+% de página quedaba marcado en cada apertura de parte y de capítulo. Con
+% includefoot, `bottom` se mide hasta el pie del PIE DE PÁGINA. 0,53 y no 0,5
+% porque la caja del glifo baja unas 0,024 pulgadas por debajo del borde nominal.
+\usepackage[paperwidth=5in,paperheight=8in,includehead,includefoot,
+            inner=0.6625in,outer=0.2875in,top=0.56in,bottom=0.53in]{geometry}
 % Spanish typesetting. T1 matters: with the default OT1 encoding an accented
 % word is built from an accent plus a letter and TeX will not hyphenate it at
 % all, which on a 4.05in measure produces overfull lines throughout.

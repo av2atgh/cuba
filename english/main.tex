@@ -6,8 +6,16 @@
 % macros are dropped. What replaces them is at the bottom: a `ledger` box for
 % Parts I and II and a `design` box for Part III, both built on chygraph's
 % model-box code so that the three books read as one series.
-\usepackage[paperwidth=5in,paperheight=8in,includehead,
-            inner=0.6625in,outer=0.2875in,top=0.56in,bottom=0.64in]{geometry}
+% includefoot is not decorative. Without it geometry measures `bottom` to the
+% foot of the TEXT BLOCK and leaves the folio to fall wherever \footskip puts
+% it, which was 0.266in from the trim -- over KDP's 0.25in floor but inside the
+% 0.5in safety area a print check draws, so the page number was flagged on every
+% part and chapter opening. With includefoot, `bottom` is measured to the bottom
+% of the FOOTER, so the clearance is stated rather than inherited. 0.53in and not
+% 0.5in because the folio's glyph box extends ~0.024in below the nominal footer
+% edge; measured, not guessed -- see the recipe under Building in README.md.
+\usepackage[paperwidth=5in,paperheight=8in,includehead,includefoot,
+            inner=0.6625in,outer=0.2875in,top=0.56in,bottom=0.53in]{geometry}
 \usepackage{graphicx}
 \usepackage[round,authoryear]{natbib}
 \usepackage[hidelinks]{hyperref}
