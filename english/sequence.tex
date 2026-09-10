@@ -1,0 +1,419 @@
+\chapter{The sequence}
+\label{ch:sequence}
+
+\section{Why order is the whole content}
+
+Chapter~\ref{ch:ledgerch} found that almost every measure proposed in this book
+has already been tried in Cuba, that most of them worked, and that all of them
+were reversed. Part III has added institutional machinery to stop the reversing.
+What remains is the order, and the order is not a presentational matter. Three of
+the four failures in Part II were failures of sequence rather than of direction.
+
+\emph{1993--95} got the sequence right and is the counter-example: stabilise
+first, then liberalise, then grow. It worked, and it was then undone by politics
+rather than by economics.
+
+\emph{2011} got it wrong by omission. The Lineamientos legalised activity without
+building any of the things that make activity possible --- no legal personality,
+no wholesale market, no import rights, no credit, no foreign exchange. The reform
+was a permission slip in an economy with no plumbing, and it produced exactly
+what such a reform produces.
+
+\emph{2021} got it wrong by inversion. The currency was unified before the
+economy was stabilised, before reserves existed, before supply could respond, and
+before the private sector was legal. The right measure in the wrong position
+destroyed the savings it was meant to rationalise.
+
+So this chapter is the book's actual proposal. Everything before it is inputs.
+
+\section{The four phases}
+
+Dates are relative to a start year rather than to a calendar, because the start
+year is not something this book can set.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=0.275cm,y=1cm,font=\scriptsize]
+% 15 years across 8.25cm. The phase shading is a header strip rather than a
+% full-height band: banded to the floor it reads as a bar and the rows appear
+% to run to year 15, which is the opposite of what the figure says.
+\def\rowa{0}\def\rowb{-0.35}\def\rowc{-0.7}
+\def\rowd{-1.05}\def\rowe{-1.4}\def\rowf{-1.75}
+
+% phase header
+\foreach \a/\b/\n/\g in {0/2/0/8, 2/6/1/16, 6/14/2/8, 14/30/3/16}{
+  \fill[black!\g] (\a,0.30) rectangle (\b,0.52);
+  \draw[black!45,line width=0.3pt] (\a,0.30) rectangle (\b,0.52);
+  \node[font=\tiny\bfseries] at ({(\a+\b)/2},0.41) {\n};}
+\node[left,font=\tiny,black!55] at (-0.4,0.41) {phase};
+
+% phase boundaries carried down through the rows
+\foreach \x in {2,6,14}{
+  \draw[black!25,line width=0.3pt,dotted] (\x,0.28) -- (\x,-1.95);}
+
+% axis
+\draw[black!55,line width=0.5pt] (0,-1.95) -- (30,-1.95);
+\foreach \x/\l in {0/0,2/1,6/3,14/7,30/15}{
+  \draw[black!55,line width=0.5pt] (\x,-1.95) -- (\x,-2.05);
+  \node[below,black!55,font=\tiny] at (\x,-2.06) {\l};}
+\node[below,black!55,font=\tiny] at (15,-2.34) {years from the start};
+
+\newcommand{\wsbar}[4]{%
+  \fill[black!#4] (#2,#1-0.095) rectangle (#3,#1+0.095);
+  \draw[black!70,line width=0.4pt] (#2,#1-0.095) rectangle (#3,#1+0.095);}
+
+\wsbar{\rowa}{0}{2}{45}    \wsbar{\rowa}{0.6}{4}{20}  \wsbar{\rowa}{4}{20}{65}
+\wsbar{\rowb}{0}{1}{45}    \wsbar{\rowb}{2}{3}{65}    \wsbar{\rowb}{3}{10}{20}
+\wsbar{\rowc}{0}{1}{65}    \wsbar{\rowc}{2}{5}{45}    \wsbar{\rowc}{5}{6}{20}
+\wsbar{\rowd}{1}{7}{45}    \wsbar{\rowd}{7}{8}{20}
+\wsbar{\rowe}{6}{14}{45}
+\wsbar{\rowf}{2}{8}{20}    \wsbar{\rowf}{6}{14}{45}   \wsbar{\rowf}{14}{30}{65}
+
+\foreach \y/\l in {\rowa/Energy,\rowb/Money,\rowc/Law,\rowd/Property,
+                   \rowe/Welfare,\rowf/Sales}{
+  \node[left,font=\tiny] at (-0.4,\y) {\l};}
+
+% the gate: labelled above the rows, where nothing else sits
+\draw[black!75,dashed,line width=0.5pt] (10,0.28) -- (10,-1.95);
+\node[above right,font=\tiny\itshape,black!75,inner sep=1pt] at (10,0.55)
+  {national elections};
+\end{tikzpicture}
+\caption{The sequence. The header strip marks the four phases; each row is a
+workstream and each bar a distinct activity within it, darker shading indicating
+the later activity in that row --- not budget, not effort. Energy runs repeals
+and efficiency, then critical loads, then the build-out; Money publishes the
+debt stock, converts the currency, then restructures; Law repeals and amnesties,
+then builds courts, then holds municipal elections; Property registers before it
+sells; Welfare converges only in Phase~2; Sales go small, then medium, then ---
+after year seven --- large. The ordering claims are the content: the build-out
+cannot start before the regulator and the tariff exist, the currency is not
+converted before the debt stock is published, the courts precede the first
+competitive elections, registration precedes any sale, welfare convergence waits
+on revenue that Phase~1's tax administration will not produce until Phase~2, and
+the largest assets are sold last --- which is the single clause standing between
+this design and the outcome described in Chapter~\ref{ch:integrity}.}
+\label{fig:sequence}
+\end{figure}
+
+\subsection*{Phase 0 --- months 0 to 12: stop the bleeding}
+
+The organising principle is that Phase 0 contains \emph{only} things that are
+fast, cheap, and reversible in their costs but not in their benefits. Nothing
+here requires foreign money, a constitutional amendment, or anyone's permission.
+
+The repeals first, because they are free. The right of any resident to contract
+with a foreign client and be paid into their own account
+(Design~\ref{d:contract}). Rooftop generation by right and duty-free import of
+energy and computing equipment (Designs~\ref{d:genrights}.1, \ref{d:genrights}.6,
+\ref{d:contract}.5). Activity permitted by right rather than by enumerated list.
+Professionals allowed to practise privately. The remaining exit restrictions
+lifted. The amnesty of Design~\ref{d:amnesty}.6 --- everyone convicted for
+political expression, association or the events of 11 July 2021 released and
+their convictions vacated --- which costs the state nothing and is the single
+clearest signal available that this time is different. Ra\'ul Castro's most
+popular measures were all of this kind and the lesson is in
+Chapter~\ref{ch:raul}: begin with the prohibitions that cost nothing to remove,
+because they are immediate, they are free, and they buy the credibility the
+expensive measures will need.
+
+Then the emergencies. Fuel, spares and maintenance for the existing thermal
+fleet, funded as a first call on the budget --- unglamorous, unavoidable, and the
+thing a solar enthusiast would skip. Demand-side efficiency at national scale, on
+the 2006 precedent. Photovoltaics and storage on critical loads: hospitals, water
+pumping, cold stores, bakeries, telecoms. Food imports maintained. Current
+supplier invoices paid and the 2009 frozen balances released
+(Design~\ref{d:debt}.6).
+
+And the announcements that start the clocks: the complete debt and arrears stock
+published; the dollarisation date and conversion rate announced; the political
+calendar of Design~\ref{d:calendar} entrenched; the cadastre programme begun.
+
+\subsection*{Phase 1 --- years 1 to 3: build the plumbing}
+
+Money: convert to the dollar at a single rate, all balances at once, wages and
+pensions protected at the floor (Design~\ref{d:regime}). Legislate the
+prohibition on monetary financing and the recurrent balance rule. Open the debt
+restructuring with the claims inside it.
+
+Law: judicial reform and, above all, the administrative court in which a citizen
+or a firm can sue the state (Design~\ref{d:courts}.4). Press, association and the
+right to information. The party law and the electoral commission. Competitive
+municipal elections at the end of the phase.
+
+Property: cadastre and registry delivered; usufruct converted to real,
+mortgageable title (Design~\ref{d:tenure}); acopio abolished; wholesale markets
+opened; the residential rental market legalised.
+
+Investment: the single investment law with direct employment, deemed consent,
+national treatment and arbitration (Design~\ref{d:invest}). Small-scale
+privatisation begins --- thousands of retail, catering, repair and service units,
+by open auction, worker and cooperative preference.
+
+Energy: the regulator, the standard power purchase agreement, net billing, and
+the first competitively tendered independent producer capacity.
+
+And the long-lead item that yields nothing in this phase and must start in it
+anyway: the revenue administration. Registration, taxpayer numbers, withholding,
+the presumptive regime for micro-enterprise, and the beginning of the VAT build.
+Every country that has done this has taken five to eight years, and the welfare
+commitment of Chapter~\ref{ch:welfare} is unfinanceable if it slips.
+
+\subsection*{Phase 2 --- years 3 to 7: the growth phase}
+
+The debt restructuring closes and the claims are settled in paper within the cap.
+Multilateral membership is pursued. VAT comes into force and the tax base begins
+to exist.
+
+The energy build-out reaches scale --- the bulk of the six gigawatts and the
+storage --- weighted to the eastern provinces. Tourism reorients on the
+value-per-visitor metric, with the moratorium on state hotel construction in
+force and the heritage authorities established. The second track becomes
+visible: connectivity redundancy delivered, the residence regime open,
+service exports counted in the balance of payments. The medicines regulator
+reaches stringent-authority standard and the first product partnerships are
+signed.
+
+The welfare convergence begins here rather than earlier, because this is the
+first phase in which there is revenue: public pay benchmarked and raised under
+Design~\ref{d:pay}, the universal cash benefits paid reliably for two full years
+before any ration item is withdrawn, and the pension reform legislated with its
+indexation formula.
+
+Medium-scale privatisation proceeds under published auction. National assembly
+elections fall in this phase, at year five.
+
+\subsection*{Phase 3 --- years 7 to 15: the hard remainder}
+
+What was deliberately left: the large state sector, the utilities, the ports, the
+telecommunications incumbent, and the military conglomerate's core assets, sold
+only once the competition authority, the sector regulators, the courts, the press
+and the beneficial-ownership register are all functioning
+(Design~\ref{d:privat}.2, Design~\ref{d:gaesa}.5). Unbundling of the electricity
+network. Convergence of benefit levels toward the European standard on the
+published trajectory. And, if the conditions of Design~\ref{d:regime}.5 are met,
+the question of whether to reintroduce a national currency.
+
+\section{Who carries which phase}
+
+The political-economy question, which a design document is not entitled to skip.
+
+\emph{Phase 0 is executable by the present government}, and this is deliberate.
+Every measure in it is within the existing constitutional order, none requires
+surrendering the party's leading role, several would relieve pressures the
+government is currently absorbing, and the amnesty and the repeals would be
+enormously popular at almost no fiscal cost. A book that requires a rupture
+before its first measure is a book that does nothing until the rupture, and
+Cubans have been waiting for the rupture since 1991.
+
+\emph{Phase 1 requires the party to accept an independent court}, which is the
+hardest single concession in the book, because it is the concession from which
+the others follow. The coalition that could carry it is the one that already
+exists inside the Cuban state: the technocrats who have been writing these
+reforms since 2011 and watching them be reversed; the enterprise managers who
+cannot operate without a currency that means something; and --- this is the
+uncomfortable part --- the armed forces, whose commercial interests are better
+served by a functioning economy with enforceable contracts than by an
+increasingly worthless monopoly over an increasingly empty one.
+
+\emph{Phase 2 requires the bargain of Design~\ref{d:gaesa}.6} to have been struck
+explicitly: security, pensions, property and a legal route into ordinary
+political and business life, in exchange for the surrender of discretionary
+control. This is where a transition is either agreed or contested, and the book's
+position is that it should be negotiated openly and written down, because a
+bargain left implicit is renegotiated at every step.
+
+\emph{Phase 3 requires a government formed after the elections of Phase 2.} It is
+not the same government, and the design does not assume that it is friendly to
+what came before. That is the test of whether the commitment devices of
+Chapter~\ref{ch:polity} were real.
+
+\section{What it costs and where it comes from}
+
+Orders of magnitude over a decade, with assumptions stated. Every figure carries
+the \unv{} mark.
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}L{2.3in}r@{}}
+\toprule
+\multicolumn{2}{@{}l}{\emph{Capital, cumulative over ten years}}\\
+Photovoltaics and storage (Ch.~\ref{ch:energy}) & \$6--8~bn \\
+Grid transmission and distribution & \$2--3~bn \\
+Water: leak reduction and treatment & \$1--2~bn \\
+Cadastre, registry, revenue administration & \$0.3--0.5~bn \\
+Strategic food reserve, initial & \$0.3--0.5~bn \\
+\midrule
+\multicolumn{2}{@{}l}{\emph{Recurrent, annual at maturity}}\\
+Public pay settlement, health and education first & \$0.6--1.1~bn/yr \\
+Benefit convergence, phased & rising \\
+\midrule
+\multicolumn{2}{@{}l}{\emph{Sources}}\\
+Hotel construction redirected & \$1--1.5~bn/yr \\
+Avoided fuel imports, from year six & \$1.2--1.5~bn/yr \\
+Diaspora investment and remittance conversion & --- \\
+Concessional and bilateral finance & --- \\
+Privatisation proceeds (to the fund) & --- \\
+Tax base as it grows & --- \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent One line in that table carries most of the argument, and it is best
+stated as a share rather than in dollars, because the peso conversion is the
+problem the note on sources described. In 2024 Cuba put 37.4 per cent of its
+total national investment into tourism-related construction and 2.7 per cent
+into agriculture, while running its hotels at occupancy around a quarter,
+importing most of its food and appealing for children's milk. Moving even half
+of the tourism share into generation, network repair, water and agriculture ---
+which requires no foreign money, no legislation and nobody's permission ---
+is of the same order as the entire energy programme in this book. The energy
+programme then saves, in perpetuity, more per year in foreign exchange than the
+hotels were ever going to earn.
+
+\emph{The largest available source of finance for this plan is not foreign. It
+is Cuba's own investment budget, spent differently.} That conclusion is the
+reason
+Chapter~\ref{ch:integrity} matters more than any chapter about capital markets:
+the constraint is not the absence of money but the absence of anyone able to
+say no to the people currently allocating it.
+
+\section{What could go wrong}
+
+Six failure modes, in descending order of likelihood.
+
+\emph{Capture.} The incumbents run Phases 0 and 1, acquire the assets in Phase 2
+before the institutions bite, and Cuba arrives in 2045 as a middle-income country
+with a captured state, a compliant press and an ownership structure fixed for a
+generation. This is the most likely failure and it is the one that is
+irreversible. Everything in Chapter~\ref{ch:integrity} is aimed at it, and the
+single indicator that detects it early is Design~\ref{d:measure}.1.
+
+\emph{The workforce leaves anyway.} The reforms take four years to raise incomes
+and the exodus takes two to remove the people who would have benefited. Cuba
+ends the decade with better institutions and no one to use them. This is why net
+migration is the master indicator below and why Phase 0 is judged on whether the
+outflow slows rather than on growth.
+
+\emph{Collapse before Phase 1 completes.} A grid failure that is not recovered, a
+fuel supplier who stops, a hurricane in the wrong year, a fiscal crisis during
+the currency conversion. The design's answer is Phase 0's unglamorous
+insistence on keeping the existing fleet running and the food coming while the
+new things are built.
+
+\emph{Sequencing failure.} Elections before courts; privatisation before the
+registers; the ration withdrawn before the cash arrives; the currency converted
+before stabilisation. Each of these has a named clause against it and each will
+be argued for, by serious people, at the time.
+
+\emph{The J-curve, politically.} Reforms of this kind hurt before they help.
+Prices rise before supply responds; state employment falls before private
+employment absorbs it. The political system has to survive the trough, and a
+government that faces its first competitive election at the bottom of it may not.
+This is an argument for the pacing above --- welfare convergence and elections
+both in Phase 2, after the first benefits are visible --- and it is an honest
+weakness of any gradualist design.
+
+\emph{An external swing.} A sudden American normalisation would flood a country
+with no absorptive capacity, no registry, no planning system and no claims
+settlement, and the assets would be allocated in eighteen months to whoever was
+positioned. A sharp tightening removes remittances and travel, which are the
+household economy. The design's premise is to assume neither, and the practical
+protection against the first is simply to have done Phase 1 before it happens.
+
+\section{How to tell whether this is working}
+
+A proposal that cannot be falsified is not a proposal. These are published
+annually, and each has a direction that constitutes failure.
+
+\begin{design}{The indicators}
+\label{d:indicators}
+\begin{rules}
+\rl{1}{Net migration} The master indicator. If Cubans continue to leave at
+anything like the rate of 2021--25, nothing else in this book matters, because
+the design is labour-constrained and the labour is going.
+
+\rl{2}{Load shedding} Average daily hours of interruption, national and by
+province, with the eastern provinces reported separately. Everything is
+downstream of this.
+
+\rl{3}{Health and education outcomes} Infant mortality, life expectancy, school
+attainment, and resident physicians, nurses and teachers per capita ---
+\emph{resident}, not counting missions abroad. These must not fall. If they fall,
+the design has failed on its own stated terms regardless of any growth figure.
+
+\rl{4}{Real wages and the price of the basket} Not the official index --- the
+cost of an actual consumption basket against actual median income.
+
+\rl{5}{Food} Share of consumption domestically produced, and post-harvest losses.
+
+\rl{6}{Service exports excluding medical missions} The second track's existence
+test. If this is not visible by year five, Chapter~\ref{ch:talent} was wrong.
+
+\rl{7}{Concentration} Per Design~\ref{d:measure}.1: the share of privatised
+assets acquired by the largest ten beneficial owners and by former officeholders.
+The early-warning indicator for capture.
+
+\rl{8}{Openness of contracting} Share of public contracts by value awarded
+through open tender with more than two bidders.
+
+\rl{9}{Time to authorise} Median days to obtain a business authorisation, and
+the share decided within the statutory period.
+
+\rl{10}{Tax revenue} Revenue as a share of output, by instrument. The financing
+test for the welfare commitment.
+
+\rl{11}{Reef and protected-area condition} Published annually, per
+Design~\ref{d:protect}.6.
+
+\rl{12}{Disaggregation} Every one of the above reported by province and, where
+individual, by race. Cuba declared the racial question solved in 1962, made it
+unmeasurable for thirty years, and entered its market opening with no idea where
+it stood. That is not repeated.
+\end{rules}
+\end{design}
+
+\section{What this book does not claim}
+
+It does not claim to know what will happen. It is a design, not a forecast, and
+the difference is that a design states its assumptions in a form that lets
+someone else change them.
+
+It does not claim that the measures here are the only ones that would work.
+Several of its recommendations --- dollarisation most obviously, the ordering of
+courts before elections next --- are genuinely contestable, and the book has
+tried to give the argument on the other side each time rather than to win by
+omission.
+
+It does not claim that the embargo is unimportant, only that it is the one
+variable Cubans do not control, and that a design which waits on it is not a
+design.
+
+It does not claim that the record of 1959--2026 is a simple story. Parts I and II
+were written at length precisely because it is not. A state that eliminated
+illiteracy in a year also ran labour camps; a state that held infant mortality
+through a thirty-five per cent contraction also handed thirty-year sentences
+to teenagers for walking in the street. Both libraries in the preface were
+telling the truth and neither was being honest, and any proposal that needs one
+of them to be false is a proposal that will fail on contact with the country.
+
+And it does not claim that any of this is likely. The most probable future for
+Cuba is the continuation of the present: a slow contraction, an ageing remainder,
+the lights going out province by province, and the young leaving until there is
+nobody left to design for. That future requires no decisions at all, which is
+what makes it the default.
+
+What the book claims is narrower and, I think, defensible. Cuba has assets that
+compose --- an educated population, a medical and scientific capability with
+products and a reputation, an intact environment in a region that has spent its
+own, sunlight falling on a country that burns imported oil, and two million of
+its own people one flight away with capital and a reason to care. Those assets
+have been available for twenty years and have not converted, and the reason is
+not principally the embargo. It is that Cuba has never built the machinery that
+turns an asset into an investment: a currency that means something, a court that
+can be lost in fairly, a registry that says who owns what, a customs service that
+does not take a cut, a procurement system that publishes what it bought, and a
+rule that cannot be withdrawn the moment it starts to work.
+
+That machinery is buildable. It is mostly not expensive. Almost none of it
+requires anyone's permission. And it is the difference between a country with
+sunshine and doctors and beaches that is poor, and one that is not.
