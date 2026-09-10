@@ -1,6 +1,9 @@
 # Una perspectiva de Cuba — edición en español
 
-Traducción de la edición inglesa en [`../english/`](../english/).
+Traducción de la edición inglesa en [`../english/`](../english/). Borrador
+completo: 24 capítulos, 231 páginas, 52 recuadros de diseño numerados, 3 figuras.
+Compila con 0 errores, 0 referencias no definidas, 0 cajas desbordadas
+horizontales y 0 verticales.
 
 ## El lector
 

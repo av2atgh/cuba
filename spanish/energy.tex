@@ -1,4 +1,317 @@
-\chapter{energy}
+\chapter{El sol}
 \label{ch:energy}
 
-\emph{[Pendiente de traducción.]}
+\section{Por qué este capítulo va primero}
+
+El capítulo~\ref{ch:premises} señaló la electricidad como la restricción vinculante.
+Vale la pena ser concreto sobre lo que eso significa, porque no es una figura retórica.
+
+El agua cubana se bombea, así que sin electricidad no hay agua. La comida cubana se
+refrigera en un clima donde la carne se echa a perder en horas, así que sin
+electricidad falla la cadena de frío y la comida se pierde entre el campo y el plato.
+Un hospital no puede programar un salón contra un calendario de apagones. Un hotel sin
+electricidad ni agua no simplemente decepciona a un huésped; produce la reseña que
+elimina a los cincuenta huéspedes siguientes. Un trabajador remoto sin electricidad no
+tiene trabajo. Una panadería sin electricidad no hornea. Y una red que ha fallado como
+sistema cuatro veces falla con más facilidad cada vez, porque cada arranque en negro
+daña equipos y cada restablecimiento se intenta con un parque en peores condiciones que
+el anterior.
+
+De modo que el orden de la Parte III no es una preferencia. Todos los capítulos
+sectoriales posteriores están condicionados a este.
+
+\section{Dónde está la red}
+
+La generación cubana es un número pequeño de grandes unidades térmicas de fueloil,
+puestas en servicio en su mayoría entre los años sesenta y ochenta, funcionando más allá
+de su vida de diseño con crudo nacional pesado y de alto azufre que no fueron diseñadas
+para quemar, sin repuestos y con frecuencia sin combustible. Junto a ellas están los
+grupos diésel y de fueloil distribuidos que se instalaron en la Revolución Energética de
+2006, ya con veinte años, y un conjunto de patanas turcas alquiladas a tarifas en divisa
+que el país tiene dificultades para pagar.
+
+En un año normal previo a la crisis el sistema generaba del orden de 20
+teravatios-hora y tenía un pico en torno a 3.000 o 3.300 megavatios.\unv{} Para 2023 la
+generación bruta había bajado a 15,3 teravatios-hora, y el consumo por habitante había
+caído de unos 1.856 kilovatios-hora en 2018 a 1.387 ---una cuarta parte menos de
+electricidad por persona en cinco años, lo que no es ahorro sino racionamiento---. A lo
+largo de 2023 y 2024 el déficit diario llegaba rutinariamente a un tercio de la demanda
+o más, con apagones de doce a veinte horas fuera de La Habana, y la red nacional colapsó
+por completo en octubre, noviembre y diciembre de 2024 y otra vez en 2025.
+
+El combustible es el costo recurrente que importa. Con la eficiencia térmica del parque
+---cercana al 30 por ciento--- 20 teravatios-hora de electricidad exigen del orden de
+seis millones de toneladas de fueloil equivalente al año. Cuba produce quizá la mitad de
+eso internamente, como crudo pesado apto para poco más, y tiene que comprar el resto
+---que es la razón de que el sistema eléctrico, la balanza de pagos y la relación
+política con quien suministre el petróleo hayan sido el mismo problema desde 1960---.
+
+\section{El recurso, y la aritmética}
+
+Cuba está entre los 20 y los 23 grados de latitud norte, con una insolación alta y
+pareja y muy poca variación estacional: irradiación horizontal global en torno a 5,0 o
+5,5 kilovatios-hora por metro cuadrado al día, lo que para un sistema fotovoltaico de
+inclinación fija bien construido en clima cálido y húmedo rinde entre 1.500 y 1.700
+kilovatios-hora por kilovatio pico instalado al año, después de la pérdida por
+temperatura y las pérdidas del sistema \citep{gsa}.\unv{} La ausencia de invierno vale
+más que la irradiación máxima: un arreglo cubano en enero produce casi lo mismo que en
+junio, lo que elimina el problema de almacenamiento estacional que domina la
+planificación en latitudes templadas.
+
+Lo que no elimina es el problema diario. La demanda cubana tiene su pico entre las seis
+y las diez de la noche, cuando coinciden el aire acondicionado, la cocina y el alumbrado
+y el sol ya se ha puesto. \emph{Este es un problema de almacenamiento tanto como de
+generación} (Fig.~\ref{fig:solar}a), y todo programa que instale fotovoltaica sin
+almacenamiento descubrirá que ha desplazado combustible del mediodía, que es el
+combustible más barato de desplazar, y ha dejado la noche ---las horas que determinan si
+la red aguanta--- exactamente como estaba.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figs/solar}
+\caption{(a)~Por qué el almacenamiento no es opcional. La demanda cubana tiene su pico
+después de la puesta del sol, de modo que la capacidad fotovoltaica por sí sola desplaza
+combustible del mediodía ---el más barato de desplazar--- y deja las horas que deciden
+si la red aguanta exactamente como estaban. La curva de carga es esquemática; obtener la
+curva horaria real de demanda de Cuba es lo primero que debería hacérsele a este
+capítulo, y \texttt{verify.md} lo recoge. (b)~La sensibilidad de la que realmente
+depende el argumento. Por debajo de aproximadamente 1,50 dólares por vatio pico el
+programa se paga solo en menos de una década en todo el rango plausible de rendimientos
+cubanos; por encima, el argumento se debilita y habría que rehacerlo sobre bases
+distintas del ahorro de combustible. Generada por \texttt{figs/solar.py}.}
+\label{fig:solar}
+\end{figure}
+
+He aquí el cálculo, con sus supuestos sobre la página para que un lector pueda
+cambiarlos.
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}L{2.35in}r@{}}
+\toprule
+Meta: la mitad de un año de 20~TWh con FV & 10~TWh/año \\
+Rendimiento específico (supuesto, conservador) & 1{.}600~kWh/kWp/año \\
+\midrule
+Capacidad requerida & $\approx$~6~GWp \\
+Terreno a 1,5~ha/MWp & $\approx$~90~km$^2$ \\
+\quad proporción del territorio cubano & $\approx$~0,08\,\% \\
+Capital a 0,80~\$/Wp & $\approx$~5.000~M\$ \\
+Almacenamiento nocturno, 4~h $\times$ 2~GW & 8~GWh \\
+Almacenamiento a 200~\$/kWh & $\approx$~1.600~M\$ \\
+\midrule
+Capital total, en una década & 6.000--8.000~M\$ \\
+Combustible desplazado al 30\,\% de eficiencia & $\approx$~3~Mt/año \\
+Su valor a 400--500~\$/t & 1.200--1.500~M\$/año \\
+\midrule
+Recuperación simple & 5--6 años \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent Cada cifra de arriba es un orden de magnitud y cada una lleva la marca
+\unv{} en el manuscrito. Se excluyen deliberadamente tres cosas que elevarían el costo:
+el refuerzo de la transmisión y la distribución, que Cuba necesita de todos modos y que
+es una cifra grande; el parque térmico, que hay que mantener en marcha para dar
+capacidad firme durante toda la transición y que por tanto sigue necesitando
+combustible, repuestos y mantenimiento; y el costo del capital, que para un soberano en
+impago es el dato más difícil de la tabla y la razón por la que la normalización de la
+deuda del capítulo~\ref{ch:money} es una precondición y no un ejercicio paralelo.
+
+Pero la forma de la respuesta sobrevive a todo eso, y la forma es lo que importa. El
+terreno requerido es un error de redondeo ---menos de una décima parte del uno por
+ciento del país, frente a entre uno y dos millones de hectáreas hoy bajo marabú---. El
+costo de capital es grande pero del mismo orden que una década de la factura de
+combustible que elimina. Y el ahorro recurrente es en divisas, que es lo más escaso que
+tiene Cuba, convirtiendo el mayor costo recurrente en divisas del país en un activo
+doméstico sin insumo alguno de combustible.
+
+Ese es el argumento, y es fuerte. No lo era en 2010, cuando los módulos costaban cinco
+veces más y las baterías quince. La razón para hacer esto ahora es que la aritmética
+cambió.
+
+\section{Los huracanes}
+
+Esta es la restricción de diseño que la mayor parte de la promoción solar para el Caribe
+omite, y omitirla es como un país gasta cinco mil millones de dólares y los pierde en una
+tarde.
+
+A Cuba la golpean huracanes mayores con regularidad y la golpearán otros más fuertes. La
+lección disponible de Puerto Rico después de María en 2017 es específica y utilizable:
+las instalaciones fotovoltaicas fallaron a tasas muy distintas según cómo estuvieran
+ingenierizadas, y los fallos fueron abrumadoramente de montaje ---estructuras,
+fijaciones, posición de resguardo de los seguidores--- y no de los módulos. Los sistemas
+construidos con especificación real de viento alto sobrevivieron en su mayoría; los
+construidos con la especificación estándar del territorio continental estadounidense en
+su mayoría no.
+
+\begin{design}{Construir para la tormenta}
+\label{d:storm}
+\begin{rules}
+\rl{1}{Especificación} Todas las instalaciones se ingenierizan como mínimo para carga de
+viento de categoría~5, con diseño de montaje, fijación y cimentación certificado a ese
+estándar, y la certificación publicada. Añade costo de capital de forma apreciable y no
+es opcional; la alternativa es pagar el arreglo dos veces.
+
+\rl{2}{Distribución} La capacidad se distribuye entre provincias y entre muchos
+emplazamientos en vez de concentrarse en unos pocos parques grandes. Un huracán es un
+riesgo espacialmente correlacionado, y el sentido entero de salir de un parque de seis
+grandes plantas térmicas no es reconstruir esa concentración en fotovoltaica.
+
+\rl{3}{Los tejados cuentan doble} La generación distribuida en tejados de hospitales,
+estaciones de bombeo, panaderías, sitios de telecomunicaciones y almacenes fríos es
+resiliente de un modo que la capacidad central no lo es: sobrevive al daño de la
+transmisión, que es lo que de verdad falla en un huracán cubano, y mantiene funcionando
+la carga crítica mientras se restablece la red.
+
+\rl{4}{Repuestos guardados, no encargados} Un inventario nacional de módulos, inversores,
+componentes de estructura y cable se mantiene en el país, en almacenamiento protegido,
+dimensionado contra un evento modelado. Comprar después de una tormenta le toma meses a
+un país sin crédito.
+
+\rl{5}{Autoseguro} El seguro comercial para activos cubanos es caro y en muchos mercados
+inobtenible. El fondo de estabilización del Diseño~\ref{d:rentrule} lleva una reserva
+explícita contra pérdidas de red y generación, y la reserva se dimensiona y se publica.
+\end{rules}
+\end{design}
+
+\section{Quién puede tener un generador}
+
+La tecnología es la parte fácil. La razón de que Cuba casi no tenga generación
+distribuida pese a una década de economía favorable es jurídica: la empresa eléctrica
+nacional es un monopolio, la generación privada se permite de forma estrecha y por
+permiso, no existe un marco bancable bajo el cual un productor independiente pueda vender
+energía, y hasta hace muy poco un hogar o un negocio privado no tenía derecho a instalar
+un panel y usar lo que produjera.
+
+Los parques solares que hoy se instalan con financiamiento chino son la tecnología
+correcta dentro de la institución equivocada: capacidad contratada centralmente, propiedad
+del Estado, conectada a una red que opera el Estado, financiada por una relación bilateral
+exactamente del tipo contra el que advirtieron los capítulos~\ref{ch:sovieteconomy} y
+\ref{ch:venezuela}. Ayudarán. No resolverán esto por sí solos, y no hacen absolutamente
+nada respecto del pico de la noche.
+
+\begin{design}{Derechos de generación}
+\label{d:genrights}
+\begin{rules}
+\rl{1}{Tejado por derecho} Todo propietario u ocupante legítimo puede instalar generación
+y almacenamiento en su propio inmueble y consumir lo que produzca, sin permiso, sujeto
+únicamente a normas publicadas de seguridad e interconexión. No por licencia, no por
+categoría, no por solicitud: por derecho, según el Diseño~\ref{d:commit}.2.
+
+\rl{2}{Facturación neta} El excedente exportado a la red se compra a una tarifa publicada
+que fija el regulador, pagada en la moneda del Diseño~\ref{d:regime}, con los períodos de
+liquidación fijados en el reglamento. Facturación neta y no medición neta, porque el
+valor de la energía exportada al mediodía es genuinamente menor que el de la consumida de
+noche, y fingir lo contrario construye un subsidio que después hay que retirar.
+
+\rl{3}{Productores independientes} Un contrato de compraventa de energía de formato
+estándar, publicado, no negociable en sus términos centrales, con arbitraje internacional
+y una garantía de pago. Un contrato negociado caso por caso en un país con el historial
+de pagos de Cuba no es bancable; un instrumento estándar con una garantía detrás puede
+serlo.
+
+\rl{4}{Regulador} Un regulador energético independiente con el mandato, el presupuesto y
+las obligaciones de publicación del Diseño~\ref{d:courts}, separado de la empresa que
+regula y del ministerio que es dueño de esa empresa. Hoy el operador, el propietario, el
+planificador y el regulador son la misma entidad, que es el mismo conflicto de interés
+que el capítulo~\ref{ch:life} identifica en los medicamentos.
+
+\rl{5}{Desagregación, con el tiempo} Transmisión y operación del sistema separadas de la
+generación, con acceso abierto y no discriminatorio a la red. Es de una fase posterior
+---es difícil, y hacerlo mal es peor que no hacerlo--- pero se enuncia aquí porque las
+normas de interconexión que se escriban en la fase uno determinan si es posible en la
+fase tres.
+
+\rl{6}{Libertad de importación} Paneles, inversores, baterías, cable y herrajes entran
+libres de arancel y sin licencia, para cualquiera. Cuba tiene hoy una población dispuesta
+a comprar su propio equipo solar con dinero de remesas y un régimen aduanero que convierte
+hacerlo en un calvario. Esta cláusula no le cuesta nada al Estado y es el megavatio más
+rápido disponible.
+\end{rules}
+\end{design}
+
+\section{La biomasa, y lo que queda del azúcar}
+
+El bagazo ---la fibra que queda tras moler la caña--- es el único renovable despachable
+que Cuba ya sabe quemar, y la planta de 2020 en Ciro Redondo demostró que una unidad
+moderna de bagazo puede exportar energía a la red en vez de limitarse a mover su propio
+central.
+
+El problema es que el recurso desapareció. El capítulo~\ref{ch:crisis} registró zafras de
+cientos de miles de toneladas; no hay bagazo porque no hay caña. De modo que la biomasa en
+Cuba es rehén de una decisión que corresponde al capítulo~\ref{ch:land}, y este capítulo
+no debería planificar en torno a una materia prima cuya existencia depende de revivir una
+industria que en su mayor parte no va a volver.
+
+Lo que sí está disponible de todos modos es el marabú. El arbusto espinoso que se ha
+adueñado de entre uno y dos millones de hectáreas de tierra agrícola cubana es una madera
+dura densa, ya sostiene una pequeña exportación de carbón vegetal, y desbrozarlo sirve para
+dos cosas a la vez: recupera tierra agrícola y produce combustible. No es un gran recurso
+energético y no debe venderse como tal. Es un recurso genuinamente transitorio, y es el
+caso poco común en que el costo de deshacerse de un problema es negativo.
+
+\section{El orden de las operaciones}
+
+La última sección, y la más importante, porque un programa de cinco mil millones de
+dólares toma una década y el problema de Cuba es ahora.
+
+\emph{Antes de construir nada.} El megavatio más barato es el que no se consume, y el
+segundo más barato es el que no se pierde por el camino. En 2023 Cuba generó 15,3
+teravatios-hora y perdió 3,7 de ellos ---cerca de una cuarta parte--- en transmisión y
+distribución antes de que llegaran a un cliente.\unv{} Es una cifra extraordinaria para
+cualquier estándar, y significa que reparar la red entrega energía utilizable a una
+fracción del costo por kilovatio-hora de construir capacidad nueva para generar energía
+que después se perderá en los mismos cables.
+
+Junto a ello, la demanda. Cuba ya ha hecho esto y lo ha hecho bien: el programa de 2006
+sustituyó nueve millones de bombillas incandescentes y millones de electrodomésticos
+ineficientes y redujo el consumo de forma medible. Dos décadas después el parque de
+electrodomésticos ha vuelto a envejecer y la misma intervención está disponible a menor
+costo y con mejor tecnología. La iluminación, la refrigeración y la climatización
+eficientes, la sustitución de motores industriales y la reducción de pérdidas son todas
+más rápidas, más baratas y menos intensivas en capital que la generación, y pueden
+empezar en el mes uno. Un programa que va directo a construir parques solares mientras
+una cuarta parte de la salida se escapa de la red está comprando generación que no podrá
+entregar.
+
+\emph{Las cargas críticas primero.} Antes que cualquier cosa a escala de red, poner
+fotovoltaica y baterías en las cargas cuyo fallo es catastrófico y no meramente caro:
+hospitales, estaciones de bombeo de agua, almacenes fríos, panaderías,
+telecomunicaciones. Son pequeñas, rápidas, de alto valor, resilientes ante huracanes, y
+le compran al programa un apoyo público que un parque solar lejano no da.
+
+\emph{Mantener vivo el parque térmico.} Es poco vistoso e inevitable. Las plantas
+existentes tienen que dar capacidad firme durante toda la transición, lo que significa
+que hay que financiar ahora el combustible, los repuestos y el mantenimiento, al mismo
+tiempo que se financia la capacidad nueva. Un plan que mate de hambre al parque viejo
+para pagar el nuevo produce un apagón peor en el año tres.
+
+\emph{Después la capacidad, con almacenamiento, distribuida.} Según la aritmética de
+arriba y los Diseños~\ref{d:storm} y \ref{d:genrights}, a lo largo de aproximadamente una
+década, con el almacenamiento contratado junto con la generación y no después.
+
+\begin{design}{La secuencia energética}
+\label{d:energyseq}
+\begin{rules}
+\rl{1}{Meses 0--6} Liberalización de la importación de equipos (Diseño~\ref{d:genrights}.6);
+derecho de tejado por decreto; programa de eficiencia lanzado; instalaciones en cargas
+críticas iniciadas; combustible y repuestos del parque existente financiados como primera
+partida del presupuesto.
+
+\rl{2}{Meses 6--24} Regulador establecido; contrato estándar de compraventa publicado;
+tarifa de facturación neta fijada; normas de interconexión emitidas; primeras licitaciones
+de productores independientes, con puja competitiva y resultados publicados según el
+capítulo~\ref{ch:integrity}.
+
+\rl{3}{Años 2--10} Construcción de aproximadamente 6~GWp y 8~GWh, distribuidos entre
+provincias, con las provincias orientales ponderadas primero ---tienen el peor suministro,
+la mayor cantidad de tierra y la menor voz política, y según el Diseño~\ref{d:municipal}.2
+el diseño no permite que los beneficios se acumulen donde están los turistas---.
+
+\rl{4}{En todo momento} Ninguna asignación preferencial de capacidad, combustible, divisa
+o acceso a la red a ninguna entidad estatal o vinculada a los militares. La energía es
+donde la discrecionalidad cubana ha sido más valiosa y por tanto más corruptora, y el
+capítulo~\ref{ch:integrity} trata la contratación de generación como objetivo prioritario
+de publicación.
+\end{rules}
+\end{design}

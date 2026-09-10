@@ -1,4 +1,265 @@
-\chapter{integrity}
+\chapter{La integridad}
 \label{ch:integrity}
 
-\emph{[Pendiente de traducción.]}
+\section{El modo de fallo}
+
+Cada capítulo de la Parte III tiene una manera de salir mal. Este es el que es común a todos, y
+es la manera en que de verdad mueren las transiciones de este tipo.
+
+El mecanismo no es misterioso. Una transición toma activos que antes no tenían precio ---tierra,
+edificios, licencias, espectro, puertos, derechos mineros, empresas estatales--- y les pone
+precio, a lo largo de unos pocos años, en un país cuyos tribunales son débiles, cuya prensa es
+nueva, cuyos funcionarios están mal pagados y cuyas reglas se están reescribiendo. Durante esa
+ventana, un número pequeño de personas está en posición de decidir quién se queda con qué, y
+saben que la ventana se cerrará. Todo en la situación premia tomar tanto como se pueda tan rápido
+como se pueda.
+
+Los resultados están en el registro. Rusia convirtió una economía planificada en una privada en
+cinco años y produjo, al final, una estructura de propiedad tan concentrada y tan ilegítima que el
+sistema político se reorganizó en torno a protegerla. Ucrania pasó veinticinco años con un sistema
+formalmente democrático capturado por un puñado de grupos industriales \citep{aslund2013}. Las
+privatizaciones rumanas produjeron una década de escándalos. Frente a ellos, Polonia, Estonia y
+Eslovenia no evitaron la corrupción ---nadie lo hace--- pero la mantuvieron por debajo del nivel
+en que determina quién gobierna, y lo hicieron con un conjunto de instrumentos bien documentados
+y poco vistosos.
+
+La versión cubana del riesgo es específica y está nombrada en el capítulo~\ref{ch:premises}: los
+actuales titulares tienen los activos, las cuentas y la información, y son las personas que
+administrarían la transición. Una liberalización conducida antes de que existan los controles no
+distribuye la economía cubana. Se la entrega a quienes hoy la tienen, con título legal adjunto, y
+ese resultado es permanente en la práctica.
+
+\section{Dos problemas distintos}
+
+Una distinción importante, porque la discusión pública cubana y su derecho penal los confunden y
+los instrumentos para cada uno son opuestos.
+
+\emph{La corrupción de supervivencia.} En una economía de escasez crónica, los cubanos comunes
+llevan treinta años obteniendo lo que necesitan por canales informales ---resolver, luchar, el
+trabajador de almacén estatal que desvía una caja de aceite, el médico al que le hacen un regalo
+por una cita, el inspector que pasa por alto algo---. Es generalizada, es como el país se ha
+alimentado, y es un síntoma de la escasez y de salarios que no cubren la subsistencia. No se
+atiende con persecución; cuarenta años de persecución no la han atendido. Se atiende con abasto y
+con salarios, es decir, con los capítulos~\ref{ch:land}, \ref{ch:energy} y \ref{ch:welfare}.
+Tratarla como el mismo delito que la categoría siguiente es injusto y además una distracción, y
+tiene el costo adicional de volver cómplice a toda la población y por tanto desinteresada en la
+anticorrupción como idea.
+
+\emph{La captura del Estado.} Un número pequeño de decisiones \citep{hellman1998} ---quién se
+queda con la concesión portuaria, quién obtiene la divisa a la tasa oficial, quién compra la
+cadena hotelera, qué empresa gana la licitación solar--- determina la propiedad del país. Es la
+categoría que decide si Cuba en 2045 es Estonia o Ucrania, y trata enteramente de unos cientos de
+personas y unos miles de decisiones.
+
+Todo lo de este capítulo apunta al segundo. El primero es un problema de bienestar disfrazado de
+derecho penal.
+
+\section{Eliminar primero la discrecionalidad}
+
+Lo más importante de este capítulo, y lo que con más frecuencia se omite de los programas
+anticorrupción porque no parece anticorrupción.
+
+La corrupción exige una decisión discrecional. Donde un funcionario no tiene elección ---donde la
+regla está publicada, la tasa es única, la respuesta es automática, el plazo es vinculante y la
+apelación es real--- no hay nada que vender. La anticorrupción eficaz es por tanto, en su mayor
+parte, desregulación y simplificación antes que persecución, y tiene la ventaja adicional de ser
+alcanzable por un gobierno que todavía no tiene tribunales honestos.
+
+Cuba es un caso extremo porque el número de superficies discrecionales es extraordinario. Cada
+una de las siguientes ha sido, y en su mayoría sigue siendo, una decisión que un funcionario toma
+sobre un ciudadano: si una actividad puede licenciarse; en qué categoría cae; si un permiso se
+renueva; si una importación se permite; qué tipo de cambio aplica; si se asigna divisa; si un
+edificio puede ampliarse; si se otorga una parcela; si un negocio se inspecciona hoy; si un médico
+puede viajar.
+
+\begin{design}{La discrecionalidad, y su eliminación}
+\label{d:discretion}
+\begin{rules}
+\rl{1}{Reglas, no permisos} La actividad se permite por derecho sujeta a prohibiciones publicadas
+(Diseño~\ref{d:commit}.2). Todo régimen de licencia que quede tiene que justificarse
+individualmente, publicarse y revisarse según un calendario de caducidad.
+
+\rl{2}{Tasas únicas} Un tipo de cambio (Diseño~\ref{d:regime}.3), una tasa de IVA
+(Diseño~\ref{d:tax}.2), un arancel, un conjunto de tarifas publicadas. Toda tasa múltiple de la
+historia cubana ha terminado siendo una renta, y la mayor superficie individual de corrupción de
+la economía durante treinta años ha sido el acceso a divisa a la tasa oficial.
+
+\rl{3}{Consentimiento tácito} Plazos legales de decisión en toda autorización, cuyo vencimiento
+constituye otorgamiento (Diseño~\ref{d:invest}.2). Un funcionario que no puede demorar no puede
+extraer, y este solo mecanismo hace más trabajo que un organismo.
+
+\rl{4}{Sin términos negociados} Sin exoneraciones fiscales sectoriales, sin paquetes de incentivos
+a medida, sin tasas ni exenciones negociadas individualmente (Diseño~\ref{d:tax}.1). Cualquier
+cosa negociada de uno a uno la negocian dos personas en una habitación.
+
+\rl{5}{Una apelación que funcione} Toda denegación, demora, incautación y sanción apelable ante el
+tribunal administrativo del Diseño~\ref{d:courts}.4, con el Estado asumiendo las costas cuando
+pierde. Es lo que convierte las reglas de arriba de enunciados en restricciones.
+
+\rl{6}{Caducidad} Todo reglamento lleva fecha de vencimiento y tiene que volver a promulgarse. La
+acumulación regulatoria es el modo en que la discrecionalidad regresa después de una reforma,
+calladamente, un decreto a la vez.
+\end{rules}
+\end{design}
+
+\section{Publicarlo todo}
+
+El segundo instrumento, y el más barato.
+
+\begin{design}{Transparencia por defecto}
+\label{d:transparency}
+\begin{rules}
+\rl{1}{Contratación abierta} Todo contrato público, licitación, adjudicación y modificación
+publicado en un estándar abierto legible por máquina, desde el primer día, con los postores, la
+evaluación y el precio. Incluye los contratos de las empresas estatales y de las entidades del
+Diseño~\ref{d:gaesa}, sin excepción. Cuba parte de cero, lo que es una ventaja: no hay sistema
+heredado que migrar.
+
+\rl{2}{Declaraciones patrimoniales} Declaraciones públicas anuales de ingresos, activos, pasivos e
+intereses de ministros, diputados, jueces, altos funcionarios, directores de empresas, oficiales
+militares por encima de cierto grado, y los miembros de sus hogares. Verificadas por muestreo
+contra los registros, con una sanción publicada por declaración falsa.
+
+\rl{3}{Registro de titularidad real} Un registro público de las personas naturales últimas detrás
+de cada sociedad, fideicomiso y vehículo que opere en Cuba, sin propiedad anónima permitida y sin
+excepciones (Diseño~\ref{d:privat}.5).
+
+\rl{4}{Presupuesto y cuentas} El presupuesto único del Diseño~\ref{d:fiscal}.1 y su ejecución
+publicados trimestralmente, a nivel nacional y municipal (Diseño~\ref{d:municipal}.4), en un
+formato común.
+
+\rl{5}{Registros abiertos} El catastro, el registro de la propiedad, el registro mercantil, las
+licencias otorgadas, las asignaciones de tierra y los resultados de las privatizaciones, todos
+consultables públicamente.
+
+\rl{6}{Objetivos prioritarios} Donde la capacidad sea escasa, el esfuerzo de publicación va
+primero a los sectores con las mayores rentas: la contratación energética
+(Diseño~\ref{d:energyseq}.4), la inversión turística y hotelera, las concesiones portuarias y
+logísticas, la minería, y las desinversiones del Diseño~\ref{d:gaesa}.5.
+\end{rules}
+\end{design}
+
+Publicar solo funciona si alguien lo lee, que es la razón de que los Diseños~\ref{d:minimum}.2 y
+\ref{d:minimum}.3 ---prensa libre y derecho legal de acceso a la información--- estén en el
+capítulo~\ref{ch:polity} y no aquí. Un portal de contratación abierta en un país sin periodistas
+es una base de datos que nadie abre. Es la dependencia individual más importante del capítulo y
+la razón de que la secuencia política no pueda posponerse: \emph{el mecanismo de aplicación de la
+transparencia es la publicidad, y la publicidad exige una prensa.}
+
+\section{El efectivo, y el Estado digital}
+
+El medio de la corrupción es el efectivo y su facilitador es la transacción en papel que no deja
+registro. Cuba es una economía abrumadoramente de efectivo, que es una razón de que los rieles de
+pago del Diseño~\ref{d:pay2} aparezcan en el capítulo del dinero como infraestructura y no como
+comodidad.
+
+\begin{design}{Sacar el efectivo}
+\label{d:digital}
+\begin{rules}
+\rl{1}{Pagos públicos digitales} Todos los pagos y cobros del Estado por encima de un umbral bajo
+---salarios, pensiones, prestaciones, impuestos, tasas, pagos a proveedores--- electrónicos y
+trazables. Esto además entrega la conversión del Diseño~\ref{d:libreta} y la retención del
+Diseño~\ref{d:tax}.
+
+\rl{2}{Compras públicas digitales} Todas las compras públicas a través de una única plataforma
+electrónica con publicación automática, documentos estándar, y una pista de auditoría que no pueda
+editarse.
+
+\rl{3}{Aduana} Una ventanilla única electrónica con aranceles publicados, inspección basada en
+riesgo seleccionada por algoritmo y no por el oficial, y tiempos de despacho publicados. La aduana
+es la superficie de corrupción de mayor rendimiento en toda economía importadora pequeña, y Cuba
+está a punto de convertirse en una.
+
+\rl{4}{Registros interoperables} Los registros tributario, de la propiedad, mercantil, de
+titularidad real y de declaraciones patrimoniales consultables entre sí por los órganos de
+auditoría y anticorrupción. Es lo que vuelve verificable, y no ceremonial, la cláusula~2 del
+Diseño~\ref{d:transparency}.
+\end{rules}
+\end{design}
+
+\section{Las instituciones, y sus límites honestos}
+
+El programa anticorrupción convencional ---un organismo, una ley, una línea de denuncias--- va
+aquí al final deliberadamente, porque es la parte que más a menudo fracasa y a la que los
+reformadores echan mano primero.
+
+\begin{design}{La aplicación}
+\label{d:enforce}
+\begin{rules}
+\rl{1}{Contraloría} Una institución superior de auditoría independiente que informe a la asamblea y
+no al ejecutivo, con presupuesto propio, potestad de auditar cualquier órgano público incluidas las
+entidades del Diseño~\ref{d:gaesa}, y obligación de publicar cada informe íntegro y a tiempo.
+
+\rl{2}{Organismo anticorrupción} Un cuerpo independiente con presupuesto, investigadores y
+fiscales propios, nombrado al modo del Diseño~\ref{d:courts}.1 y removible solo por el
+procedimiento del Diseño~\ref{d:courts}.2. \emph{Con la advertencia enunciada con llaneza}: los
+organismos de este tipo fracasan sin tribunales independientes ante los cuales acusar, y donde se
+han creado por delante de la reforma judicial han sido capturados y usados contra opositores
+políticos, lo que es peor que no tener ninguno. Esta cláusula está condicionada a que el
+Diseño~\ref{d:courts} esté vigente.
+
+\rl{3}{Denunciantes} Protección legal para la revelación en interés público, en el sector público y
+en el privado, con reincorporación, indemnización y anonimato, y una defensa frente a cualquier
+imputación bajo las disposiciones sobre secretos de Estado.
+
+\rl{4}{Recuperación de activos} Una vía de recuperación civil que permita al Estado recuperar
+activos no explicados con el estándar de la probabilidad prevaleciente, con supervisión judicial y
+derecho a dar explicaciones. Según el Diseño~\ref{d:amnesty}.4, la recuperación del activo es el
+remedio para el enriquecimiento histórico antes que la prisión: es más alcanzable, más útil, y no
+exige que el Estado vuelva a litigar el pasado.
+
+\rl{5}{Pagarle a los funcionarios} Un inspector de impuestos, un oficial de aduanas, un juez o un
+funcionario de compras que no puede vivir de su salario lo complementará. La paga pública del
+Diseño~\ref{d:pay} es un instrumento anticorrupción y es el que más probablemente se recorte cuando
+escasee el dinero, que es exactamente cuando importa.
+\end{rules}
+\end{design}
+
+\section{La medición}
+
+Un diseño que no puede comprobarse es un deseo. El capítulo~\ref{ch:sequence} reúne los
+indicadores del libro; los que pertenecen a este capítulo se listan aquí porque son la alerta
+temprana disponible y porque son baratos.
+
+\begin{design}{Lo que se publica cada año}
+\label{d:measure}
+\begin{rules}
+\rl{1}{Concentración} La proporción de los activos privatizados, por valor, adquirida por los diez
+mayores titulares reales, y la proporción adquirida por personas que ocuparon un cargo público o
+una dirección de empresa estatal en los cinco años previos. Si esta cifra es grande, el diseño está
+fracasando de la manera en que es más probable que fracase.
+
+\rl{2}{Competencia} La proporción de los contratos públicos, por valor, adjudicada mediante
+licitación abierta y competitiva con más de dos postores, y la proporción adjudicada de forma
+directa.
+
+\rl{3}{Discrecionalidad} El número de regímenes de licencia y autorización vigentes, y la
+proporción de autorizaciones decididas dentro del plazo legal. El primero debe bajar y la segunda
+subir; si el conteo de regímenes está subiendo, la discrecionalidad está regresando por
+acumulación.
+
+\rl{4}{Cumplimiento} La proporción de declaraciones patrimoniales presentadas a tiempo y el número
+muestreado, verificado y sancionado.
+
+\rl{5}{Medición independiente} Cuba debería adherirse a los estándares internacionales de
+transparencia y contratación abierta y ser evaluada por ellos, y publicar las evaluaciones digan lo
+que digan. La medición externa es un dispositivo de compromiso en el sentido del
+Diseño~\ref{d:commit}: es un juicio que el gobierno no puede editar.
+\end{rules}
+\end{design}
+
+\section{El orden}
+
+Para cerrar, la afirmación de orden del capítulo, puesto que de orden trata en realidad.
+
+La discrecionalidad se elimina \emph{antes} de que se vendan activos. Las cuentas se publican
+\emph{antes} de que se reestructuren las entidades que las llevan. La prensa y el derecho a la
+información se establecen \emph{antes} que los portales de transparencia, porque los portales son
+inútiles sin ellos. Los tribunales van \emph{antes} que el organismo anticorrupción. Y los mayores
+activos se venden \emph{al final}, cuando todo lo anterior exista.
+
+Invierta cualquiera de estas cosas y el instrumento no solo fracasa: se convierte en instrumento
+de aquello que debía impedir ---un organismo anticorrupción que procesa opositores, una subasta que
+blanquea una asignación pactada de antemano, un portal de transparencia que publica hacia el
+silencio---. Esa es la manera específica en que sale mal este capítulo, y sale mal por prisa antes
+que por mala intención.

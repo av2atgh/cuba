@@ -1,4 +1,385 @@
-\chapter{sequence}
+\chapter{La secuencia}
 \label{ch:sequence}
 
-\emph{[Pendiente de traducción.]}
+\section{Por qué el orden es todo el contenido}
+
+El capítulo~\ref{ch:ledgerch} halló que casi todas las medidas que propone este libro ya se han
+intentado en Cuba, que la mayoría funcionó, y que todas se revirtieron. La Parte III ha añadido
+maquinaria institucional para impedir la reversión. Lo que queda es el orden, y el orden no es una
+cuestión de presentación. Tres de los cuatro fracasos de la Parte II fueron fracasos de secuencia y
+no de dirección.
+
+\emph{1993--95} acertó con la secuencia y es el contraejemplo: estabilizar primero, después
+liberalizar, después crecer. Funcionó, y después lo deshizo la política y no la economía.
+
+\emph{2011} se equivocó por omisión. Los Lineamientos legalizaron la actividad sin construir nada de
+lo que la vuelve posible ---sin personalidad jurídica, sin mercado mayorista, sin derecho a
+importar, sin crédito, sin divisa---. La reforma fue un permiso en una economía sin fontanería, y
+produjo exactamente lo que produce una reforma así.
+
+\emph{2021} se equivocó por inversión. La moneda se unificó antes de que la economía estuviera
+estabilizada, antes de que existieran reservas, antes de que la oferta pudiera responder y antes de
+que el sector privado fuera legal. La medida correcta en la posición equivocada destruyó los
+ahorros que pretendía racionalizar.
+
+De modo que este capítulo es la propuesta de verdad del libro. Todo lo anterior son insumos.
+
+\section{Las cuatro fases}
+
+Las fechas son relativas a un año de arranque y no a un calendario, porque el año de arranque no es
+algo que este libro pueda fijar.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=0.275cm,y=1cm,font=\scriptsize]
+% 15 años en 8,25cm; seis filas de líneas de trabajo. El sombreado de fase es una
+% banda de cabecera y no una franja de altura completa: bajada hasta el suelo se lee
+% como una barra y las filas parecen llegar al año 15, que es lo contrario de lo que
+% dice la figura.
+\def\rowa{0}\def\rowb{-0.35}\def\rowc{-0.7}
+\def\rowd{-1.05}\def\rowe{-1.4}\def\rowf{-1.75}
+
+\foreach \a/\b/\n/\g in {0/2/0/8, 2/6/1/16, 6/14/2/8, 14/30/3/16}{
+  \fill[black!\g] (\a,0.30) rectangle (\b,0.52);
+  \draw[black!45,line width=0.3pt] (\a,0.30) rectangle (\b,0.52);
+  \node[font=\tiny\bfseries] at ({(\a+\b)/2},0.41) {\n};}
+\node[left,font=\tiny,black!55] at (-0.4,0.41) {fase};
+
+\foreach \x in {2,6,14}{
+  \draw[black!25,line width=0.3pt,dotted] (\x,0.28) -- (\x,-1.95);}
+
+\draw[black!55,line width=0.5pt] (0,-1.95) -- (30,-1.95);
+\foreach \x/\l in {0/0,2/1,6/3,14/7,30/15}{
+  \draw[black!55,line width=0.5pt] (\x,-1.95) -- (\x,-2.05);
+  \node[below,black!55,font=\tiny] at (\x,-2.06) {\l};}
+\node[below,black!55,font=\tiny] at (15,-2.34) {años desde el inicio};
+
+\newcommand{\wsbar}[4]{%
+  \fill[black!#4] (#2,#1-0.095) rectangle (#3,#1+0.095);
+  \draw[black!70,line width=0.4pt] (#2,#1-0.095) rectangle (#3,#1+0.095);}
+
+\wsbar{\rowa}{0}{2}{45}    \wsbar{\rowa}{0.6}{4}{20}  \wsbar{\rowa}{4}{20}{65}
+\wsbar{\rowb}{0}{1}{45}    \wsbar{\rowb}{2}{3}{65}    \wsbar{\rowb}{3}{10}{20}
+\wsbar{\rowc}{0}{1}{65}    \wsbar{\rowc}{2}{5}{45}    \wsbar{\rowc}{5}{6}{20}
+\wsbar{\rowd}{1}{7}{45}    \wsbar{\rowd}{7}{8}{20}
+\wsbar{\rowe}{6}{14}{45}
+\wsbar{\rowf}{2}{8}{20}    \wsbar{\rowf}{6}{14}{45}   \wsbar{\rowf}{14}{30}{65}
+
+\foreach \y/\l in {\rowa/Energía,\rowb/Dinero,\rowc/Derecho,\rowd/Propiedad,
+                   \rowe/Bienestar,\rowf/Ventas}{
+  \node[left,font=\tiny] at (-0.4,\y) {\l};}
+
+\draw[black!75,dashed,line width=0.5pt] (10,0.28) -- (10,-1.95);
+\node[font=\tiny\itshape,black!75,anchor=north] at (10,-2.62) {elecciones nacionales};
+\end{tikzpicture}
+\caption{La secuencia. La banda de cabecera marca las cuatro fases; cada fila es una línea de
+trabajo y cada barra una actividad distinta dentro de ella, indicando el sombreado más oscuro la
+actividad posterior de esa fila ---no presupuesto, no esfuerzo---. Energía corre las derogaciones y
+la eficiencia, después las cargas críticas, después la construcción; Dinero publica el acervo de
+deuda, convierte la moneda, después reestructura; Derecho deroga y amnistía, después construye
+tribunales, después celebra elecciones municipales; Propiedad registra antes de vender; Bienestar
+converge solo en la Fase~2; Ventas van pequeñas, después medianas, y después ---pasado el año
+siete--- grandes. Las afirmaciones de orden son el contenido: la construcción no puede empezar
+antes de que existan el regulador y la tarifa, la moneda no se convierte antes de que se publique
+el acervo de deuda, los tribunales preceden a las primeras elecciones competitivas, el registro
+precede a cualquier venta, la convergencia del bienestar espera por ingresos que la administración
+tributaria de la Fase~1 no producirá hasta la Fase~2, y los mayores activos se venden al final
+---que es la única cláusula que se interpone entre este diseño y el resultado descrito en el
+capítulo~\ref{ch:integrity}---.}
+\label{fig:sequence}
+\end{figure}
+
+\subsection*{Fase 0 --- meses 0 a 12: detener la hemorragia}
+
+El principio organizador es que la Fase 0 contiene \emph{solamente} cosas rápidas, baratas y
+reversibles en sus costos pero no en sus beneficios. Nada de aquí requiere dinero extranjero, una
+enmienda constitucional ni el permiso de nadie.
+
+Las derogaciones primero, porque son gratis. El derecho de todo residente a contratar con un
+cliente extranjero y a cobrar en su propia cuenta (Diseño~\ref{d:contract}). La generación en tejado
+por derecho y la importación libre de arancel de equipos de energía e informática
+(Diseños~\ref{d:genrights}.1, \ref{d:genrights}.6, \ref{d:contract}.5). La actividad permitida por
+derecho en vez de por lista enumerada. Los profesionales autorizados a ejercer privadamente. Las
+restricciones de salida que quedan, levantadas. La amnistía del Diseño~\ref{d:amnesty}.6 ---toda
+persona condenada por expresión política, asociación o los hechos del 11 de julio de 2021 liberada y
+su condena anulada---, que no le cuesta nada al Estado y es la señal más clara disponible de que
+esta vez es distinto. Las medidas más populares de Raúl Castro fueron todas de esa clase y la
+lección está en el capítulo~\ref{ch:raul}: empezar por las prohibiciones que no cuesta nada retirar,
+porque son inmediatas, son gratis, y compran la credibilidad que las medidas caras van a necesitar.
+
+Después las urgencias. Combustible, repuestos y mantenimiento del parque térmico existente,
+financiados como primera partida del presupuesto ---poco vistoso, inevitable, y lo que se saltaría
+un entusiasta de la energía solar---. Eficiencia por el lado de la demanda a escala nacional, sobre
+el precedente de 2006. Fotovoltaica y baterías en las cargas críticas: hospitales, bombeo de agua,
+almacenes fríos, panaderías, telecomunicaciones. Importaciones de alimentos mantenidas. Facturas
+corrientes de proveedores pagadas y saldos congelados de 2009 liberados (Diseño~\ref{d:debt}.6).
+
+Y los anuncios que ponen en marcha los relojes: el acervo completo de deuda y atrasos publicado; la
+fecha de dolarización y la tasa de conversión anunciadas; el calendario político del
+Diseño~\ref{d:calendar} anclado; el programa del catastro iniciado.
+
+\subsection*{Fase 1 --- años 1 a 3: construir la fontanería}
+
+Dinero: convertir al dólar a una tasa única, todos los saldos a la vez, salarios y pensiones
+protegidos en el piso (Diseño~\ref{d:regime}). Legislar la prohibición de financiamiento monetario y
+la regla de equilibrio corriente. Abrir la reestructuración de deuda con las reclamaciones dentro.
+
+Derecho: reforma judicial y, sobre todo, el tribunal administrativo ante el cual un ciudadano o una
+empresa pueda demandar al Estado (Diseño~\ref{d:courts}.4). Prensa, asociación y derecho a la
+información. La ley de partidos y la comisión electoral. Elecciones municipales competitivas al
+final de la fase.
+
+Propiedad: catastro y registro entregados; usufructo convertido en título real e hipotecable
+(Diseño~\ref{d:tenure}); acopio abolido; mercados mayoristas abiertos; mercado residencial de
+alquiler legalizado.
+
+Inversión: la ley única de inversión con empleo directo, consentimiento tácito, trato nacional y
+arbitraje (Diseño~\ref{d:invest}). Comienza la privatización de pequeña escala ---miles de unidades
+de comercio, restauración, reparación y servicios, por subasta abierta, con preferencia de
+trabajadores y cooperativas---.
+
+Energía: el regulador, el contrato estándar de compraventa, la facturación neta, y la primera
+capacidad de productores independientes licitada competitivamente.
+
+Y la partida de maduración larga que no rinde nada en esta fase y que tiene que empezar en ella: la
+administración tributaria. Registro, números de contribuyente, retención, el régimen presuntivo para
+la microempresa, y el comienzo de la construcción del IVA. Todos los países que lo han hecho han
+tardado de cinco a ocho años, y el compromiso de bienestar del capítulo~\ref{ch:welfare} es
+infinanciable si se retrasa.
+
+\subsection*{Fase 2 --- años 3 a 7: la fase de crecimiento}
+
+Se cierra la reestructuración de deuda y las reclamaciones se saldan en papel dentro del tope. Se
+persigue la membresía multilateral. El IVA entra en vigor y la base tributaria empieza a existir.
+
+La construcción energética alcanza escala ---el grueso de los seis gigavatios y el
+almacenamiento--- ponderada hacia las provincias orientales. El turismo se reorienta sobre la
+métrica de valor por visitante, con la moratoria a la construcción hotelera estatal vigente y las
+autoridades patrimoniales establecidas. La segunda vía se vuelve visible: redundancia de
+conectividad entregada, régimen de residencia abierto, exportaciones de servicios contabilizadas en
+la balanza de pagos. El regulador de medicamentos alcanza el estándar de autoridad rigurosa y se
+firman las primeras asociaciones por producto.
+
+La convergencia del bienestar empieza aquí y no antes, porque es la primera fase en que hay
+ingresos: paga pública referenciada y elevada según el Diseño~\ref{d:pay}, las prestaciones
+universales en efectivo pagadas con fiabilidad durante dos años completos antes de retirar ningún
+renglón de la libreta, y la reforma de pensiones legislada con su fórmula de indexación.
+
+La privatización de escala mediana avanza por subasta publicada. Las elecciones a la asamblea
+nacional caen en esta fase, en el año cinco.
+
+\subsection*{Fase 3 --- años 7 a 15: el resto difícil}
+
+Lo que se dejó deliberadamente: el gran sector estatal, los servicios públicos, los puertos, la
+operadora de telecomunicaciones establecida, y los activos centrales del conglomerado militar,
+vendidos solo una vez que la autoridad de competencia, los reguladores sectoriales, los tribunales,
+la prensa y el registro de titularidad real estén todos funcionando (Diseño~\ref{d:privat}.2,
+Diseño~\ref{d:gaesa}.5). Desagregación de la red eléctrica. Convergencia de los niveles de
+prestación hacia el estándar europeo por la trayectoria publicada. Y, si se cumplen las condiciones
+del Diseño~\ref{d:regime}.5, la cuestión de si reintroducir una moneda nacional.
+
+\section{Quién lleva cada fase}
+
+La pregunta de economía política, que un documento de diseño no tiene derecho a saltarse.
+
+\emph{La Fase 0 es ejecutable por el gobierno actual}, y esto es deliberado. Toda medida en ella
+está dentro del orden constitucional existente, ninguna exige renunciar al papel dirigente del
+partido, varias aliviarían presiones que el gobierno hoy absorbe, y la amnistía y las derogaciones
+serían enormemente populares a un costo fiscal casi nulo. Un libro que exige una ruptura antes de su
+primera medida es un libro que no hace nada hasta la ruptura, y los cubanos llevan esperando la
+ruptura desde 1991.
+
+\emph{La Fase 1 exige que el partido acepte un tribunal independiente}, que es la concesión
+individual más difícil del libro, porque es la concesión de la que se siguen las demás. La coalición
+que podría llevarla es la que ya existe dentro del Estado cubano: los técnicos que llevan escribiendo
+estas reformas desde 2011 y viéndolas revertir; los gerentes de empresa que no pueden operar sin una
+moneda que signifique algo; y ---esta es la parte incómoda--- las fuerzas armadas, cuyos intereses
+comerciales están mejor servidos por una economía que funcione con contratos exigibles que por un
+monopolio cada vez más inútil sobre una economía cada vez más vacía.
+
+\emph{La Fase 2 exige que se haya cerrado explícitamente el trato del Diseño~\ref{d:gaesa}.6}:
+seguridad, pensiones, propiedad y una vía legal hacia la vida política y empresarial ordinaria, a
+cambio de la entrega del control discrecional. Es donde una transición se pacta o se disputa, y la
+posición del libro es que debería negociarse abiertamente y ponerse por escrito, porque un trato
+dejado implícito se renegocia en cada paso.
+
+\emph{La Fase 3 exige un gobierno formado después de las elecciones de la Fase 2.} No es el mismo
+gobierno, y el diseño no supone que sea amistoso con lo anterior. Esa es la prueba de si los
+dispositivos de compromiso del capítulo~\ref{ch:polity} eran reales.
+
+\section{Lo que cuesta y de dónde sale}
+
+Órdenes de magnitud a lo largo de una década, con los supuestos declarados. Cada cifra lleva la marca
+\unv{}.
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}L{2.3in}r@{}}
+\toprule
+\multicolumn{2}{@{}l}{\emph{Capital, acumulado en diez años}}\\
+Fotovoltaica y almacenamiento (cap.~\ref{ch:energy}) & 6.000--8.000~M\$ \\
+Transmisión y distribución & 2.000--3.000~M\$ \\
+Agua: reducción de fugas y tratamiento & 1.000--2.000~M\$ \\
+Catastro, registro, administración tributaria & 300--500~M\$ \\
+Reserva estratégica de alimentos, inicial & 300--500~M\$ \\
+\midrule
+\multicolumn{2}{@{}l}{\emph{Corriente, anual en régimen}}\\
+Acuerdo de paga pública, salud y educación primero & 600--1.100~M\$/año \\
+Convergencia de prestaciones, por fases & creciente \\
+\midrule
+\multicolumn{2}{@{}l}{\emph{Fuentes}}\\
+Construcción hotelera redirigida & 1.000--1.500~M\$/año \\
+Importaciones de combustible evitadas, desde el año seis & 1.200--1.500~M\$/año \\
+Inversión de la diáspora y conversión de remesas & --- \\
+Financiamiento concesional y bilateral & --- \\
+Ingresos de privatización (al fondo) & --- \\
+La base tributaria conforme crezca & --- \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent Una línea de esa tabla carga con casi todo el argumento, y se enuncia mejor como
+proporción que en dólares, porque la conversión desde el peso es el problema que describía la nota
+sobre las fuentes. En 2024 Cuba puso el 37,4 por ciento de su inversión nacional total en
+construcción vinculada al turismo y el 2,7 por ciento en agricultura, mientras operaba sus hoteles a
+una ocupación cercana a la cuarta parte, importaba la mayor parte de su comida y pedía leche para
+niños. Mover siquiera la mitad de la proporción turística hacia generación, reparación de la red,
+agua y agricultura ---lo que no exige dinero extranjero, ni legislación, ni el permiso de nadie--- es
+del mismo orden que el programa energético entero de este libro. El programa energético ahorra
+después, a perpetuidad, más divisas al año de las que los hoteles iban a ganar jamás.
+
+\emph{La mayor fuente de financiamiento disponible para este plan no es extranjera. Es el propio
+presupuesto de inversión de Cuba, gastado de otra manera.} Esa conclusión es la razón de que el
+capítulo~\ref{ch:integrity} importe más que cualquier capítulo sobre mercados de capital: la
+restricción no es la ausencia de dinero sino la ausencia de alguien capaz de decirle que no a quienes
+hoy lo asignan.
+
+\section{Qué puede salir mal}
+
+Seis modos de fallo, en orden descendente de probabilidad.
+
+\emph{La captura.} Los actuales titulares llevan las Fases 0 y 1, adquieren los activos en la Fase 2
+antes de que muerdan las instituciones, y Cuba llega a 2045 como un país de ingreso medio con un
+Estado capturado, una prensa dócil y una estructura de propiedad fijada por una generación. Es el
+fracaso más probable y es el irreversible. Todo el capítulo~\ref{ch:integrity} apunta a él, y el
+único indicador que lo detecta temprano es el Diseño~\ref{d:measure}.1.
+
+\emph{La fuerza de trabajo se va de todos modos.} Las reformas tardan cuatro años en elevar los
+ingresos y el éxodo tarda dos en llevarse a la gente que se habría beneficiado. Cuba termina la
+década con mejores instituciones y sin nadie que las use. Por eso la migración neta es el indicador
+maestro de más abajo y por eso la Fase 0 se juzga por si el flujo de salida se frena y no por el
+crecimiento.
+
+\emph{El derrumbe antes de que se complete la Fase 1.} Un fallo de red que no se recupere, un
+proveedor de combustible que se detenga, un huracán en el año equivocado, una crisis fiscal durante
+la conversión monetaria. La respuesta del diseño es la insistencia poco vistosa de la Fase 0 en
+mantener funcionando el parque existente y la comida llegando mientras se construyen las cosas
+nuevas.
+
+\emph{El fallo de secuencia.} Elecciones antes que tribunales; privatización antes que los registros;
+la libreta retirada antes de que llegue el efectivo; la moneda convertida antes de la estabilización.
+Cada una de estas cosas tiene una cláusula que la nombra en contra y cada una la defenderá, en su
+momento, gente seria.
+
+\emph{La curva en J, en lo político.} Las reformas de este tipo hacen daño antes de ayudar. Los
+precios suben antes de que responda la oferta; el empleo estatal cae antes de que lo absorba el
+privado. El sistema político tiene que sobrevivir al valle, y un gobierno que enfrenta su primera
+elección competitiva en el fondo de ese valle puede no hacerlo. Es un argumento a favor del ritmo de
+arriba ---convergencia del bienestar y elecciones ambas en la Fase 2, después de que los primeros
+beneficios sean visibles--- y es una debilidad honesta de cualquier diseño gradualista.
+
+\emph{Un vuelco externo.} Una normalización norteamericana repentina inundaría un país sin capacidad
+de absorción, sin registro, sin sistema de planificación y sin arreglo de reclamaciones, y los
+activos se asignarían en dieciocho meses a quien estuviera posicionado. Un endurecimiento brusco
+elimina las remesas y los viajes, que son la economía de los hogares. La premisa del diseño es no
+suponer ninguno de los dos, y la protección práctica contra el primero es sencillamente haber hecho
+la Fase 1 antes de que ocurra.
+
+\section{Cómo saber si esto está funcionando}
+
+Una propuesta que no puede falsarse no es una propuesta. Estos se publican anualmente, y cada uno
+tiene una dirección que constituye el fracaso.
+
+\begin{design}{Los indicadores}
+\label{d:indicators}
+\begin{rules}
+\rl{1}{Migración neta} El indicador maestro. Si los cubanos siguen yéndose a algo parecido al ritmo
+de 2021--25, nada más de este libro importa, porque el diseño está limitado por la mano de obra y la
+mano de obra se está yendo.
+
+\rl{2}{Horas de apagón} Horas diarias medias de interrupción, nacionales y por provincia, con las
+provincias orientales informadas por separado. Todo lo demás está aguas abajo de esto.
+
+\rl{3}{Resultados de salud y educación} Mortalidad infantil, esperanza de vida, rendimiento escolar,
+y médicos, enfermeros y maestros \emph{residentes} por habitante ---residentes, sin contar las
+misiones en el exterior---. No pueden caer. Si caen, el diseño ha fracasado en sus propios términos
+declarados, cualquiera que sea la cifra de crecimiento.
+
+\rl{4}{Salarios reales y precio de la canasta} No el índice oficial: el costo de una canasta de
+consumo real contra el ingreso mediano real.
+
+\rl{5}{Alimentos} Proporción del consumo producida en el país, y pérdidas poscosecha.
+
+\rl{6}{Exportaciones de servicios sin las misiones médicas} La prueba de existencia de la segunda
+vía. Si no es visible para el año cinco, el capítulo~\ref{ch:talent} estaba equivocado.
+
+\rl{7}{Concentración} Según el Diseño~\ref{d:measure}.1: la proporción de activos privatizados
+adquirida por los diez mayores titulares reales y por antiguos cargos públicos. El indicador de
+alerta temprana de la captura.
+
+\rl{8}{Apertura de la contratación} Proporción de los contratos públicos, por valor, adjudicada por
+licitación abierta con más de dos postores.
+
+\rl{9}{Tiempo de autorización} Días medianos para obtener una autorización de negocio, y proporción
+decidida dentro del plazo legal.
+
+\rl{10}{Recaudación} Ingresos tributarios como proporción del producto, por instrumento. La prueba
+de financiamiento del compromiso de bienestar.
+
+\rl{11}{Estado del arrecife y de las áreas protegidas} Publicado anualmente, según el
+Diseño~\ref{d:protect}.6.
+
+\rl{12}{Desagregación} Cada uno de los anteriores informado por provincia y, donde sea individual,
+por raza. Cuba declaró resuelta la cuestión racial en 1962, la volvió inmedible durante treinta
+años, y entró en su apertura de mercado sin idea de dónde estaba parada. Eso no se repite.
+\end{rules}
+\end{design}
+
+\section{Lo que este libro no afirma}
+
+No afirma saber qué va a pasar. Es un diseño, no un pronóstico, y la diferencia está en que un diseño
+enuncia sus supuestos en una forma que le permite a otro cambiarlos.
+
+No afirma que las medidas de aquí sean las únicas que funcionarían. Varias de sus recomendaciones
+---la dolarización de la manera más evidente, y el orden de tribunales antes que elecciones
+después--- son genuinamente discutibles, y el libro ha intentado dar cada vez el argumento del otro
+lado en vez de ganar por omisión.
+
+No afirma que el embargo carezca de importancia, solo que es la única variable que los cubanos no
+controlan, y que un diseño que espera por ella no es un diseño.
+
+No afirma que el registro de 1959 a 2026 sea una historia sencilla. Las Partes I y II se escribieron
+con extensión precisamente porque no lo es. Un Estado que eliminó el analfabetismo en un año también
+mantuvo campos de trabajo; un Estado que sostuvo la mortalidad infantil a través de una contracción
+del treinta y cinco por ciento también le dio condenas de treinta años a adolescentes por caminar por
+la calle. Las dos bibliotecas del prefacio decían la verdad y ninguna era honesta, y toda propuesta
+que necesite que una de las dos sea falsa es una propuesta que fracasará al contacto con el país.
+
+Y no afirma que nada de esto sea probable. El futuro más probable para Cuba es la continuación del
+presente: una contracción lenta, un remanente que envejece, las luces apagándose provincia por
+provincia, y los jóvenes yéndose hasta que no quede nadie para quien diseñar. Ese futuro no exige
+decisión alguna, que es lo que lo convierte en el resultado por defecto.
+
+Lo que el libro afirma es más estrecho y, creo, defendible. Cuba tiene activos que se componen ---una
+población educada, una capacidad médica y científica con productos y reputación, un medio ambiente
+intacto en una región que gastó el suyo, luz solar cayendo sobre un país que quema petróleo
+importado, y dos millones de los suyos a un vuelo de distancia con capital y una razón para
+importarles---. Esos activos han estado disponibles durante veinte años y no se han convertido, y la
+razón no es principalmente el embargo. Es que Cuba nunca ha construido la maquinaria que convierte un
+activo en una inversión: una moneda que signifique algo, un tribunal ante el cual se pueda perder
+limpiamente, un registro que diga quién es dueño de qué, una aduana que no cobre su tajada, un
+sistema de compras públicas que publique lo que compró, y una regla que no pueda retirarse en el
+momento en que empiece a funcionar.
+
+Esa maquinaria puede construirse. En su mayor parte no es cara. Casi nada de ella requiere el permiso
+de nadie. Y es la diferencia entre un país con sol, médicos y playas que es pobre, y uno que no lo es.

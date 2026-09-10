@@ -1,4 +1,7 @@
-"""Figure for Chapter 16 (energy.tex).
+"""Figura del capítulo 16 (energy.tex) — edición en español.
+
+Rótulos traducidos; los datos y los supuestos son los mismos que en
+../english/figs/solar.py y cualquier corrección tiene que entrar en ambas.
 
 (a) Why storage is not optional. The daily load shape is SCHEMATIC -- Cuba's
     actual hourly demand curve is not reliably public, and verify.md records
@@ -41,18 +44,18 @@ load = (0.58
 pv = np.clip(np.cos((h - 12.9) / 6.4 * (np.pi / 2)), 0, None) ** 1.35
 pv = pv / pv.max() * 0.95
 
-ax1.plot(h, load, color="black", lw=1.0, label="demand")
-ax1.plot(h, pv, color="0.45", lw=1.0, ls="--", label="PV output")
+ax1.plot(h, load, color="black", lw=1.0, label="demanda")
+ax1.plot(h, pv, color="0.45", lw=1.0, ls="--", label="salida FV")
 gap = (h > 17.0) & (h < 23.5)
 ax1.fill_between(h[gap], np.minimum(load, pv)[gap], load[gap],
                  color="0.75", alpha=0.85, lw=0)
-ax1.text(20.2, 0.40, "storage\nmust\ncover this", ha="center", va="center",
+ax1.text(20.2, 0.40, "el almacenamiento\ntiene que cubrir\nesto", ha="center", va="center",
          fontsize=6.2, style="italic")
 ax1.set_xlim(0, 24); ax1.set_ylim(0, 1.15)
 ax1.set_xticks([0, 6, 12, 18, 24])
-ax1.set_xlabel("hour")
-ax1.set_ylabel("normalised")
-ax1.set_title("(a) The evening peak", fontsize=7.5, loc="left", pad=4)
+ax1.set_xlabel("hora")
+ax1.set_ylabel("normalizado")
+ax1.set_title("(a) El pico de la noche", fontsize=7.5, loc="left", pad=4)
 ax1.legend(frameon=False, fontsize=6.2, loc="upper left",
            handlelength=1.4, borderpad=0.1)
 ax1.spines[["top", "right"]].set_visible(False)
@@ -68,13 +71,13 @@ for yld, style, lab in [(1300, ":", "1,300"), (1600, "-", "1,600"), (1900, "--",
     capex = gwp * 1e3 * cost + storage      # $/Wp -> $/kWp
     ax2.plot(cost, capex / fuel_saving, style, color="black", lw=0.9, label=lab)
 ax2.axhline(10, color="0.55", lw=0.6)
-ax2.text(1.92, 10.5, "10 yr", ha="right", fontsize=6.2, color="0.4")
+ax2.text(1.92, 10.5, "10 años", ha="right", fontsize=6.2, color="0.4")
 ax2.axvline(0.80, color="0.55", lw=0.6, ls=":")
-ax2.text(0.86, 1.0, "chapter's\nassumption", fontsize=6.0, color="0.4")
-ax2.set_xlabel("installed cost, \\$/Wp")
-ax2.set_ylabel("simple payback, years")
+ax2.text(0.86, 1.0, "supuesto del\ncapítulo", fontsize=6.0, color="0.4")
+ax2.set_xlabel("costo instalado, \\$/Wp")
+ax2.set_ylabel("recuperación simple, años")
 ax2.set_xlim(0.4, 2.0); ax2.set_ylim(0, 23)
-ax2.set_title("(b) What would break it", fontsize=7.5, loc="left", pad=4)
+ax2.set_title("(b) Qué lo rompería", fontsize=7.5, loc="left", pad=4)
 ax2.legend(frameon=False, fontsize=6.2, title="kWh/kWp/yr",
            title_fontsize=6.2, loc="lower right", handlelength=1.6,
            borderpad=0.1, labelspacing=0.25)
@@ -82,4 +85,4 @@ ax2.spines[["top", "right"]].set_visible(False)
 
 fig.tight_layout(pad=0.4)
 fig.savefig("figs/solar.pdf", bbox_inches="tight")
-print("wrote figs/solar.pdf")
+print("escrito figs/solar.pdf")
