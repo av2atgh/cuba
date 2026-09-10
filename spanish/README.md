@@ -43,8 +43,10 @@ que a otros países de la región les concierne por comparación.
   idiomas---. Este texto lleva las mismas marcas `\unv` en las mismas
   afirmaciones. Las correcciones de fondo se hacen primero en `english/` y
   después se trasladan aquí, nunca al revés.
-- **La bibliografía.** `references.bib` es un enlace simbólico al archivo de la
-  edición inglesa, para que no puedan separarse.
+- **La bibliografía.** Cada edición tiene su propia copia de `references.bib`.
+  Antes eran un enlace simbólico, que no podía separarse; ahora son dos archivos
+  reales y sí pueden. Comprobarlo es una línea:
+  `cmp ../english/references.bib references.bib`.
 
 `summary.md` recoge el argumento del libro en menos de 200 palabras.
 
