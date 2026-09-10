@@ -231,5 +231,8 @@ Should read ≥ 0.5in, the safety area print checks draw. It currently reads
   editions.** This is the primary edition, so corrections land here first and
   are then carried into `../spanish/`; the ledger is deliberately not mirrored,
   because two copies of it would diverge
+- `ebook/` — the EPUB3 / Kindle build. `sh ebook/build-book.sh` produces
+  `book-ebook.epub` from these same sources without touching them; see
+  `ebook/README.md`
 - `figs/` — figure sources. `comecon.py` and `solar.py` each regenerate their
   own PDF; the phase timeline is TikZ inline in `sequence.tex`

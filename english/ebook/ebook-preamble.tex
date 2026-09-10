@@ -1,0 +1,108 @@
+% ebook-preamble.tex — shared preamble for the EPUB build of
+% "A prospect of Cuba: Past and Future". \input after \documentclass, before
+% \begin{document}. The print sources in ../ are never modified; every
+% definition here mirrors the one in ../main.tex, adapted where tex4ht needs it.
+%
+% What is deliberately NOT here, and why:
+%   geometry  — a 5x8 trim is meaningless in a reflowable book.
+%   fancyhdr  — running heads and folios have no analogue in EPUB.
+%   makeidx   — a page-number index cannot work without pages. The EPUB relies
+%               on the reader's own search, which is better than an index.
+%   hyperref  — tex4ht makes its own links; loading hyperref fights it.
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[round,authoryear]{natbib}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,fit,backgrounds,decorations.pathreplacing}
+
+% Grayscale palette (used by the TikZ figure when renderfigs.sh compiles it).
+\colorlet{accent}{black!80}
+\colorlet{accentB}{black!50}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% The unverified-figure mark. Prints nothing in either build; it exists so the
+% list in verify.md stays mechanically extractable.
+\newcommand{\unv}{}
+
+% The three mathematical symbols in the whole book, all of them in the energy
+% table. Left as math they become little images that neither reflow nor scale
+% with the reader's font; as character entities they are text a reader can
+% search and resize. mkbody.pl rewrites $\approx$, $\times$ and km$^2$ into
+% these. Print builds (renderfigs.sh) keep the maths.
+\ifdefined\HCode
+  \newcommand{\approxsym}{\HCode{&##8776;}}
+  \newcommand{\timessym}{\HCode{&##215;}}
+  \newcommand{\sqkm}{km\HCode{&##178;}}
+\else
+  \newcommand{\approxsym}{\ensuremath{\approx}}
+  \newcommand{\timessym}{\ensuremath{\times}}
+  \newcommand{\sqkm}{\ensuremath{\mathrm{km}^2}}
+\fi
+
+% The design counter lives outside the \ifdefined so both branches share it and
+% \thedesign is identical in print and EPUB — Part III cross-references every
+% box by number, so the two must not drift.
+% Guarded because renderfigs.sh compiles the TikZ figure with the `standalone`
+% class, which has no chapter counter.
+\ifdefined\chapter
+  \newcounter{design}[chapter]
+  \renewcommand{\thedesign}{\thechapter.\arabic{design}}
+\else
+  \newcounter{design}
+\fi
+
+% The two set-off boxes.
+%  - Under tex4ht: a CSS-styled <div>. \leavevmode forces any pending paragraph
+%    to open so that \EndP really closes it (</p>), leaving the <div> at valid
+%    block level; \IgnorePar then keeps the title out of a fresh <p>. Without
+%    \leavevmode a box directly after a float yields invalid <p><div>...</p>.
+%    The title is a <span> set to display:block by CSS rather than a
+%    \par-terminated line: inside the div tex4ht opens no paragraph for it, so a
+%    \par there produces no break at all and the title runs into the first
+%    sentence.
+%  - Under plain pdflatex (renderfigs.sh, debugging): fall back to tcolorbox as
+%    in print.
+\ifdefined\HCode
+  \newenvironment{design}[1]{%
+    \refstepcounter{design}%
+    \leavevmode\EndP\HCode{<div class="designbox">}\IgnorePar%
+    \HCode{<span class="boxtitle">}{\bfseries Design \thedesign.\ #1}\HCode{</span>}}%
+    {\EndP\HCode{</div>}}%
+  \newenvironment{ledger}[1]{%
+    \leavevmode\EndP\HCode{<div class="ledgerbox">}\IgnorePar%
+    \HCode{<span class="boxtitle">}{\bfseries The ledger: #1}\HCode{</span>}}%
+    {\EndP\HCode{</div>}}%
+  % The clause list. In print this is a hanging-indented `list` whose label is
+  % set with \makebox; tex4ht turns a \makebox into a picture, so the EPUB uses
+  % a description list instead. That is also the honest markup: each clause is a
+  % term and its text, which is exactly <dt>/<dd>.
+  \newenvironment{rules}{\begin{description}}{\end{description}}%
+  \newcommand{\rl}[2]{\item[(#1) \textsc{#2}]}%
+\else
+  \usepackage[most]{tcolorbox}
+  \newenvironment{design}[1]{%
+    \refstepcounter{design}%
+    \begin{tcolorbox}[breakable,colback=black!7,colframe=black!7,boxrule=0pt,
+      fontupper=\small]%
+    \noindent{\normalsize\textbf{Design \thedesign.\ #1}}\par\smallskip}%
+    {\end{tcolorbox}}%
+  \newenvironment{ledger}[1]{%
+    \begin{tcolorbox}[breakable,colback=black!7,colframe=black!7,boxrule=0pt,
+      fontupper=\small]%
+    \noindent{\normalsize\textbf{The ledger: #1}}\par\smallskip}%
+    {\end{tcolorbox}}%
+  \newenvironment{rules}
+    {\begin{list}{}{%
+       \setlength{\leftmargin}{1.5em}\setlength{\itemindent}{-1.5em}%
+       \setlength{\labelwidth}{0pt}\setlength{\labelsep}{0pt}%
+       \setlength{\topsep}{0pt}\setlength{\parsep}{0pt}%
+       \setlength{\itemsep}{3pt plus 1pt}\setlength{\listparindent}{0pt}}}
+    {\end{list}}%
+  \newcommand{\rl}[2]{\item[]\makebox[1.5em][l]{(#1)}\textsc{#2}\hspace{0.4em}}%
+\fi
+
+\hyphenation{cuen-ta-pro-pis-mo cuen-ta-pro-pis-tas Bio-Cuba-Farma
+  bio-tech-nol-o-gy des-a-bas-te-ci-mien-to par-a-me-tra-cion}
