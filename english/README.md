@@ -183,7 +183,7 @@ latexmk -pdf main.tex
 ```
 
 Current state: **0 errors, 0 undefined references, 0 overfull hboxes, 0 overfull vboxes, 0
-BibTeX warnings, 221 pages** — a complete draft: 24 of 24 chapters, 52 numbered
+BibTeX warnings, 232 pages** — a complete draft: 24 of 24 chapters, 52 numbered
 design boxes, 3 figures, 40 citations against 33 references.
 
 **Check vboxes, not just hboxes.** The `design` and `ledger` boxes were
@@ -202,10 +202,25 @@ grep -c '^!' main.log                       # errors
 grep -o 'begin{design}' *.tex | wc -l       # design boxes
 grep -o '\\citep' *.tex | wc -l             # citations
 grep -c 'Warning' main.blg                  # bibliography warnings
-grep -c 'Overfull .hbox' main.log           # overfull lines
+grep -c 'Overfull .hbox' main.log           # lines running into the margin
+grep -c 'Overfull .vbox' main.log           # content running off the page
 grep -c 'undefined' main.log                # undefined references
 grep -n 'unv' *.tex | grep -v '^main.tex'   # unverified figures, cf. verify.md
 ```
+
+**Trim clearance is not a TeX diagnostic.** A folio sitting too close to the
+trim edge is not an overfull box and TeX reports nothing; a print service
+rejects it anyway. Measure the PDF instead. On a part or chapter opening — the
+`plain` pages, which are the ones that print the folio in the footer:
+
+```
+pdftotext -f 13 -l 13 -bbox main.pdf - | python3 -c \
+"import re,sys; s=sys.stdin.read(); h=float(re.search(r'height=\"([0-9.]+)\"',s)[1]); \
+print(min((h-float(y))/72 for y in re.findall(r'yMax=\"([0-9.]+)\"',s)), 'in from bottom trim')"
+```
+
+Should read ≥ 0.5in, the safety area print checks draw. It currently reads
+0.506in.
 
 ## Files
 
