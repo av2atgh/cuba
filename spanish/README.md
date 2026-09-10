@@ -46,6 +46,8 @@ que a otros países de la región les concierne por comparación.
 - **La bibliografía.** `references.bib` es un enlace simbólico al archivo de la
   edición inglesa, para que no puedan separarse.
 
+`summary.md` recoge el argumento del libro en menos de 200 palabras.
+
 ## Producción
 
 Sigue a la edición inglesa: formato 5×8 pulgadas, 10pt, escala de grises, un

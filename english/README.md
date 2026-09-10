@@ -211,6 +211,7 @@ grep -n 'unv' *.tex | grep -v '^main.tex'   # unverified figures, cf. verify.md
 
 - `main.tex` — preamble and chapter includes
 - `references.bib` — starter bibliography; entries are added as chapters are drafted, not in advance
+- `summary.md` — the book's argument in under 200 words
 - `verify.md` — every `\unv` figure, with where to check it. **Covers both
   editions.** This is the primary edition, so corrections land here first and
   are then carried into `../spanish/`; the ledger is deliberately not mirrored,
