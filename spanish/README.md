@@ -1,34 +1,48 @@
-# A prospect of Cuba — Spanish edition
+# Una perspectiva de Cuba — edición en español
 
-Not started.
+Traducción de la edición inglesa en [`../english/`](../english/).
 
-The English manuscript in [`../english/`](../english/) is the source text: 24
-chapters, complete draft. When this edition begins, the things worth deciding
-first, because they are expensive to change later:
+## El lector
 
-- **Translation or re-writing.** The book's primary audience is arguably Cuban
-  and in Cuba, which is an argument for the Spanish edition being the one
-  written *for* its reader rather than a translation of one written for someone
-  else. Part III in particular addresses Cubans about Cuban institutions.
-- **Terms that should not be translated back through English.** The manuscript
-  uses *acopio*, *libreta*, *cuentapropismo*, *jineterismo*, *marabú*,
-  *parametración*, *paladar*, *casa particular*, *maleconazo*, *quinquenio
-  gris*, *acto de repudio*, *resolver*, *luchar*, *tarjeta blanca*,
-  *pedraplén*, *bohío*, *tiempo muerto*, *zafra*. In Spanish these stop being
-  glossed foreign words and become the ordinary vocabulary, which changes how
-  several passages have to be written.
-- **Register.** The English text explains Cuban institutions to a reader who does
-  not know them. A Cuban reader does. Passages that exist only to explain
-  *acopio* or the *libreta* should shrink; passages that argue about what to do
-  about them should not.
-- **What must not drift.** The design boxes in Part III are numbered
-  institutional rules and are cross-referenced by number throughout. If the
-  editions diverge in their numbering they stop being the same book.
-- **The verification ledger.** [`../english/verify.md`](../english/verify.md)
-  tracks every figure not traced to a primary source. Corrections must land in
-  both editions or the two will disagree on facts.
+La decisión que gobierna todo lo demás. El lector de esta edición **no es
+necesariamente cubano**. Es hispanohablante, y puede ser mexicano, argentino,
+español o colombiano. Sabe lo que significa la palabra *libreta*; no sabe que en
+Cuba nombra una cartilla de racionamiento vigente desde 1962. Conoce la palabra
+*acopio*; no conoce el monopsonio estatal que lleva ese nombre.
 
-Production follows the English edition: 5×8 in trim, 10pt, grayscale, one file
-per chapter. Spanish needs `\usepackage[spanish]{babel}` and its hyphenation
-patterns, and the running heads and the `design`/`ledger` box titles will need
-translating in the preamble rather than per chapter.
+De ahí las dos reglas del vocabulario, que no son la misma:
+
+- **Los términos cubanos no se traducen.** Ya están en español. *Acopio*,
+  *libreta*, *cuentapropismo*, *jineterismo*, *marabú*, *parametración*,
+  *paladar*, *casa particular*, *maleconazo*, *quinquenio gris*, *acto de
+  repudio*, *resolver*, *luchar*, *tarjeta blanca*, *pedraplén*, *bohío*,
+  *tiempo muerto*, *zafra*, *balsero*, *gusano*, *microbrigada*.
+- **Pero se siguen explicando.** La edición inglesa glosa cada uno porque su
+  lector no conoce la palabra. Esta edición los glosa porque su lector conoce la
+  palabra y no la institución. La glosa cambia de forma, no desaparece.
+
+Un lector cubano encontrará explicado lo que ya sabe. Es el precio correcto: el
+libro no está escrito solamente para cubanos, y la Parte III propone un sistema
+que a otros países de la región les concierne por comparación.
+
+## Lo que no puede divergir
+
+- **La numeración de los recuadros de diseño.** La Parte III se remite a ellos
+  por número a lo largo de todo el libro. Si las dos ediciones numeran distinto
+  dejan de ser el mismo libro. Los archivos llevan los mismos nombres que en
+  `english/` y las cajas aparecen en el mismo orden, precisamente por esto.
+- **Los hechos.** [`../english/verify.md`](../english/verify.md) registra cada
+  cifra no rastreada hasta una fuente primaria. Toda corrección tiene que
+  entrar en las dos ediciones.
+- **La bibliografía.** `references.bib` es un enlace simbólico al archivo de la
+  edición inglesa, para que no puedan separarse.
+
+## Producción
+
+Sigue a la edición inglesa: formato 5×8 pulgadas, 10pt, escala de grises, un
+archivo por capítulo. Añade `babel` en español, codificación T1 para que las
+palabras acentuadas se dividan bien, y los títulos de los recuadros traducidos
+en el preámbulo. Las figuras se regeneran con `python3 figs/<nombre>.py`; son
+versiones propias, con los rótulos en español.
+
+Compilar con `latexmk -pdf main.tex`.

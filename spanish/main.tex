@@ -1,0 +1,259 @@
+\documentclass[10pt]{book}
+
+% Spanish edition. The preamble mirrors ../english/main.tex exactly except for
+% babel, the T1 encoding, and the two box titles; the chapter files carry the
+% same names and the same order so that the design-box numbering is identical
+% in both editions, which is what lets Part III cross-reference by number.
+%
+% Trim, margins, heads, palette, float placement and the set-off box machinery
+% all follow ~/av2atg/chygraph/book, which follows ~/av2atg/LocalNetworkGrowth.
+% This book carries no mathematics, so amssymb, adjustbox and the notation
+% macros are dropped. What replaces them is at the bottom: a `ledger` box for
+% Parts I and II and a `design` box for Part III, both built on chygraph's
+% model-box code so that the three books read as one series.
+\usepackage[paperwidth=5in,paperheight=8in,includehead,
+            inner=0.6625in,outer=0.2875in,top=0.56in,bottom=0.64in]{geometry}
+% Spanish typesetting. T1 matters: with the default OT1 encoding an accented
+% word is built from an accent plus a letter and TeX will not hyphenate it at
+% all, which on a 4.05in measure produces overfull lines throughout.
+% es-noquoting and es-nolists stop babel making " active and re-styling lists,
+% either of which would break the `rules` environment below.
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-noquoting,es-nolists,es-nosectiondot]{babel}
+\usepackage{graphicx}
+\usepackage[round,authoryear]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{makeidx}
+\makeindex
+
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,fit,backgrounds,decorations.pathreplacing}
+
+% The index is set in one ragged-right column. The book-class default is two,
+% which on a 5-inch page leaves about 1.7in of measure -- too little to break
+% entries like "Comecon, terms of trade under" without overfull lines.
+\makeatletter
+\renewenvironment{theindex}
+  {\clearpage
+   \chapter*{\indexname}%
+   \addcontentsline{toc}{chapter}{\indexname}%
+   \markboth{\indexname}{\indexname}%
+   \thispagestyle{plain}%
+   \parindent\z@
+   \parskip\z@ \@plus .3\p@\relax
+   \raggedright
+   \let\item\@idxitem}
+  {\clearpage}
+\makeatother
+
+% Section headings ragged right. The class sets them justified, which on a
+% 4.05in measure makes a long title overflow rather than break. Chapter heads
+% are already ragged in book.cls; these two were not.
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+  {-3.5ex \@plus -1ex \@minus -.2ex}%
+  {2.3ex \@plus.2ex}%
+  {\raggedright\normalfont\Large\bfseries}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+  {-3.25ex\@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\raggedright\normalfont\large\bfseries}}
+\makeatother
+
+% ---------------------------------------------------------------------------
+% Two set-off environments, and only two. Both are chygraph's model box with a
+% different heading, so a reader coming from that book already knows that a
+% shaded block is something the text has stipulated rather than derived.
+%
+% `ledger` is a balance: a claim and its counter-claim set down together and
+% left there. Parts I and II close on one wherever the honest answer is that
+% both things are true at once, which on this subject is most of the time. A
+% ledger is not a summary of the section above it -- if the two say the same
+% thing, one of them is redundant.
+%
+% `design` is a numbered institutional rule for Part III, stated as a rule and
+% never as a paragraph the reader has to parse back into one. Its interior is
+% the `rules` list below, so that a design can be argued with one clause at a
+% time. A design box is always a proposal and never a description of anything
+% that exists.
+% ---------------------------------------------------------------------------
+% BREAKABLE. The first implementation of these boxes was chygraph's model box,
+% an lrbox inside a minipage. That cannot break across a page, so a box longer
+% than the text height runs off the bottom of the page silently -- which is what
+% Design 14.2 did, by 88pt. Several of Part III's design boxes are longer than a
+% page and always will be, so the box has to break. tcolorbox with breakable is
+% the same choice Local network growth makes for its calculation box.
+%
+% The counter is kept as a plain LaTeX counter rather than tcolorbox's auto
+% counter, and stepped BEFORE the box opens, so that a \label placed just inside
+% \begin{design} still resolves against \thedesign -- which is how every
+% cross-reference in Part III is written.
+\newcounter{design}[chapter]
+\renewcommand{\thedesign}{\thechapter.\arabic{design}}
+\newenvironment{design}[1]
+  {\par\addvspace{\medskipamount}%
+   \refstepcounter{design}%
+   \begin{tcolorbox}[breakable,enhanced,colback=black!7,colframe=black!7,
+     boxrule=0pt,arc=0pt,outer arc=0pt,
+     left=6pt,right=6pt,top=6pt,bottom=6pt,
+     fontupper=\small]%
+   \noindent{\normalsize\textbf{Dise\~no \thedesign.\ #1}}\par\nobreak\smallskip}
+  {\end{tcolorbox}\addvspace{\medskipamount}\noindent\ignorespacesafterend}
+
+\newenvironment{ledger}[1]
+  {\par\addvspace{\medskipamount}%
+   \begin{tcolorbox}[breakable,enhanced,colback=black!7,colframe=black!7,
+     boxrule=0pt,arc=0pt,outer arc=0pt,
+     left=6pt,right=6pt,top=6pt,bottom=6pt,
+     fontupper=\small]%
+   \noindent{\normalsize\textbf{El balance: #1}}\par\nobreak\smallskip}
+  {\end{tcolorbox}\addvspace{\medskipamount}\noindent\ignorespacesafterend}
+
+% The clause list inside a design box: tight, hanging-indented, with the clause
+% name carried by \rl so that renaming the convention is a one-line edit here.
+\newenvironment{rules}
+  {\begin{list}{}{%
+     \setlength{\leftmargin}{1.5em}\setlength{\itemindent}{-1.5em}%
+     \setlength{\labelwidth}{0pt}\setlength{\labelsep}{0pt}%
+     \setlength{\topsep}{0pt}\setlength{\parsep}{0pt}%
+     \setlength{\itemsep}{3pt plus 1pt}\setlength{\listparindent}{0pt}}}
+  {\end{list}}
+% The 1.5em slot is the list's hanging indent, so continuation lines line up
+% under the clause name. Labels must fit it: number the clauses, as every
+% design box in this book does.
+\newcommand{\rl}[2]{\item[]\makebox[1.5em][l]{(#1)}\textsc{#2}\hspace{0.4em}}
+
+
+% Compact running heads that fit the narrow 5x8 page.
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\small\thepage}
+\fancyhead[RE]{\small\nouppercase{\leftmark}}
+\fancyhead[LO]{\small\nouppercase{\rightmark}}
+\renewcommand{\headrulewidth}{0.3pt}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}\fancyfoot[C]{\small\thepage}}
+
+% Make the blank verso pages inserted before each chapter truly blank.
+\makeatletter
+\def\cleardoublepage{\clearpage\if@twoside\ifodd\c@page\else
+  \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
+
+% Grayscale palette (the book is printed in black and white).
+\colorlet{accent}{black!80}
+\colorlet{accentB}{black!50}
+
+% Looser float placement so figures do not leave near-empty pages on the small trim.
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.7}
+\setcounter{topnumber}{2}
+\setcounter{totalnumber}{3}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% A figure asserted from a secondary source and not yet traced to a primary one
+% carries \unv. Every occurrence is listed in verify.md. The macro prints
+% nothing, so the mark is a working device and not a mark on the page.
+\newcommand{\unv}{}
+
+\hyphenation{cuen-ta-pro-pis-mo cuen-ta-pro-pis-tas Bio-Cuba-Farma
+  bio-tec-no-lo-gí-a des-a-bas-te-ci-mien-to pa-ra-me-tra-ción
+  or-ga-no-pó-ni-cos in-ter-na-cio-na-lis-mo}
+
+\begin{document}
+
+% Roman front matter, so the preface and the note on sources have page numbers
+% and appear in the contents with them. Arabic numbering restarts at
+% \mainmatter, below.
+\frontmatter
+
+\title{Una perspectiva de Cuba}
+\author{Alexei Vazquez}
+% Empty rather than absent: \maketitle would otherwise stamp the build date on
+% the title page and change it silently on every run.
+\date{}
+\maketitle
+
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+{\itshape Para los que se quedaron, y los que se fueron.}
+\end{center}
+\vspace*{\fill}
+\clearpage
+
+\include{preface}
+\include{sources}
+
+% The contents lists parts and chapters only: with twenty-three chapters,
+% breaking it down to sections runs to eight pages and helps nobody.
+\setcounter{tocdepth}{0}
+\tableofcontents
+
+\mainmatter
+
+% ===========================================================================
+\part{1959--1990}
+% The Soviet-era republic, from the inheritance it took over to the year the
+% subsidy stopped. Five chapters, chronological, each carrying both sides of
+% its own ledger rather than deferring the bad news to a later chapter.
+% ===========================================================================
+
+\include{inheritance}
+\include{revolution}
+\include{socialstate}
+\include{sovieteconomy}
+\include{internationalism}
+
+% ===========================================================================
+\part{1990--2026}
+% Thirty-six years of adjustment to the loss of a patron, in two cycles:
+% liberalise under duress, recentralise when the pressure lifts, twice over.
+% ===========================================================================
+
+\include{collapse}
+\include{dollarreform}
+\include{venezuela}
+\include{raul}
+\include{crisis}
+\include{ledgerch}
+
+% ===========================================================================
+\part{La perspectiva}
+% The design. Part III is the reason the first two parts are in the book: a
+% proposal has to be answerable to the record, and the record is what fixes
+% which constraints are real.
+% ===========================================================================
+
+\include{premises}
+\include{polity}
+\include{welfare}
+\include{money}
+\include{energy}
+\include{tourism}
+\include{talent}
+\include{life}
+\include{land}
+\include{capital}
+\include{integrity}
+\include{nature}
+\include{sequence}
+
+\backmatter
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+\addcontentsline{toc}{chapter}{Bibliography}
+
+\printindex
+
+\end{document}
