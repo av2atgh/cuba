@@ -17,3 +17,6 @@
 # diffs are unreadable. Figure PDFs under figs/ ARE tracked, so the book builds
 # from a fresh clone without anyone having to run the Python.
 main.pdf
+
+# Finder droppings
+.DS_Store
