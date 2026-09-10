@@ -12,6 +12,8 @@ and answerable to the record the first two parts establish.
 | [`spanish/`](spanish/) | Spanish edition. Complete draft — 24 chapters, 246 pages. Same chapter files, same design-box numbering; `references.bib` is a symlink to the English one so the two cannot diverge. |
 
 Build either edition with `latexmk -pdf main.tex` from inside its directory.
+Each also carries an `ebook/` directory that produces a validated EPUB3 for
+Kindle: `sh ebook/build-book.sh`.
 
 ## English is primary
 

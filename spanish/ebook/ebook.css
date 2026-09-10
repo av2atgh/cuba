@@ -1,0 +1,51 @@
+/* ebook.css — book styles merged into the tex4ht stylesheet by fixepub.py.
+   Everything here is either (a) a print device that has no EPUB equivalent and
+   needs re-expressing, or (b) a fix for something tex4ht emits that reads badly
+   on a small screen. Nothing here is decoration for its own sake. */
+
+body { line-height: 1.45; }
+
+/* ---- the two set-off boxes -------------------------------------------------
+   In print these are shaded tcolorboxes on a 4.05in measure. On a phone a
+   border plus padding is the same signal and costs no width, so the box is a
+   left rule and a tint rather than a full frame. */
+div.designbox, div.ledgerbox {
+  margin: 1.1em 0;
+  padding: 0.7em 0.8em;
+  background: #f2f2f2;
+  border-left: 3px solid #666;
+}
+div.designbox { border-left-color: #333; }
+
+span.boxtitle {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+/* ---- the clause list -------------------------------------------------------
+   Each design clause is a <dt> (its number and name) and a <dd> (its text).
+   Print hangs the name in a 1.5em slot; a screen has no width to spare, so the
+   name sits on its own line and the text is indented under it. */
+dl { margin: 0.6em 0; }
+dt { font-variant: small-caps; margin-top: 0.7em; }
+dd { margin: 0.15em 0 0 1.2em; }
+
+/* ---- figures ---------------------------------------------------------------
+   Every figure is a pre-rasterised PNG. max-width keeps the two data figures,
+   which are 3.9in wide by design, inside a narrow column. */
+img { max-width: 100%; height: auto; }
+figure, div.figure { margin: 1.2em 0; text-align: center; }
+.caption, div.caption { font-size: 0.85em; text-align: left; margin-top: 0.5em; }
+
+/* ---- tables ----------------------------------------------------------------
+   The two tables are cost arithmetic: a left label column and a right figure
+   column. border-collapse is what makes the booktabs rules that fixepub.py
+   copies onto the cells render as single lines. */
+table.tabular { border-collapse: collapse; margin: 1em auto; font-size: 0.9em; }
+table.tabular td { padding: 0.25em 0.5em; vertical-align: top; }
+table.tabular td.r, table.tabular td[align="right"] { text-align: right; }
+
+/* ---- headings --------------------------------------------------------------
+   Part pages are a single line in an EPUB, not a page of their own. */
+h1, h2, h3 { line-height: 1.25; }
