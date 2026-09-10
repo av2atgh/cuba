@@ -34,9 +34,15 @@ que a otros países de la región les concierne por comparación.
   por número a lo largo de todo el libro. Si las dos ediciones numeran distinto
   dejan de ser el mismo libro. Los archivos llevan los mismos nombres que en
   `english/` y las cajas aparecen en el mismo orden, precisamente por esto.
-- **Los hechos.** [`../english/verify.md`](../english/verify.md) registra cada
-  cifra no rastreada hasta una fuente primaria. Toda corrección tiene que
-  entrar en las dos ediciones.
+- **Los hechos.** La edición inglesa es la primaria.
+  [`../english/verify.md`](../english/verify.md) es el único registro de
+  verificación y cubre las dos ediciones: recoge cada cifra no rastreada hasta
+  una fuente primaria, y anota qué cambió cada comprobación ya hecha. No se
+  duplica aquí a propósito ---dos copias de una lista de hechos en disputa
+  acabarían divergiendo, y entonces el libro se contradiría a sí mismo en dos
+  idiomas---. Este texto lleva las mismas marcas `\unv` en las mismas
+  afirmaciones. Las correcciones de fondo se hacen primero en `english/` y
+  después se trasladan aquí, nunca al revés.
 - **La bibliografía.** `references.bib` es un enlace simbólico al archivo de la
   edición inglesa, para que no puedan separarse.
 
